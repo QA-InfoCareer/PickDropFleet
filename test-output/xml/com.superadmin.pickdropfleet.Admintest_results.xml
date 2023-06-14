@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="34.798">
+    <properties></properties>
+
+
+
+            <testcase
+                name="createUserByAdmin"
+                time="11.644"
+                classname="com.superadmin.pickdropfleet.Admintest">
+            </testcase>
+            <testcase
+                name="adminLogin"
+                time="3.333"
+                classname="com.superadmin.pickdropfleet.Admintest">
+            </testcase>
+            <testcase
+                name="createKitchenByAdmin"
+                time="18.384"
+                classname="com.superadmin.pickdropfleet.Admintest">
+            </testcase>
+            <testcase
+                name="adminLogout"
+                time="1.437"
+                classname="com.superadmin.pickdropfleet.Admintest">
+            </testcase>
+</testsuite>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  
+  <test name="KitchdenAdminTest">
+    
+    <classes>
+    
+     <class name="com.pickdropfleet.admin.test.Kitchenadmintest">
+     
+     <methods>
+     
+     
+     <include name="browserLaunch"></include>
+     <include name="kitchenAdminLogin"></include>
+     <include name="addSchoolTest"></include>   
+     <include name="addRiderAtUser"></include>  
+     <include name="addSchoolAdminAtUser"></include>
+     <include name="addDistributionManagerAtUser"></include>
+     <include name="addRouteAdminAtUser"></include>
+     <include name="addSchoolRelationshipManagerAtUser"></include>
+     <include name="addFuelSupervisorAtUser"></include>
+     <include name="addVehicleTest"></include>
+     <include name="testFoodMenu"></include>
+     <include name="testAddRoute"></include>
+     <include name="testDailyRequest"></include>
+     <include name="testAddVehicleExpense"></include>
+     <include name="kitchenAdminLogout"></include>
+   
+     </methods>
+     
+     
+     
+     
+     
+     
+     </class>
+    
+    </classes>
+  
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="KitchdenAdminTest"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="13.723">
+    <properties></properties>
+
+
+
+            <testcase
+                name="kitchenAdminLogin"
+                time="2.806"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="testFoodMenu"
+                time="10.917"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+</testsuite>

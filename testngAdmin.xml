@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite">
+  
+  <test name="AdminTest">
+    <classes>
+     
+     <class name="com.pickdropfleet.admin.test.Admintest">
+    
+     <methods>
+     
+     <include name="browserLaunch"></include>
+     <include name="adminLogin"></include>
+     <include name="createKitchenByAdmin"></include> 
+     <include name="createUserByAdmin"></include>
+     <include name="testViewUser"></include>
+     <include name="testSchoolView"></include>
+     <include name="testVehicleView"></include>
+     <include name="testMenuView"></include>
+     <include name="testRouteView"></include>
+     <include name="adminLogout"></include>
+     
+     
+     
+     
+     </methods>
+     
+     </class>
+     
+     
+    </classes>
+  </test>
+  
+  
+</suite> <!-- Suite -->

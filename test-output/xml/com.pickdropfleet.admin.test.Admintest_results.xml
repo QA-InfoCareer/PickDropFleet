@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AdminTest"
+           tests="9"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="46.427">
+    <properties></properties>
+
+
+
+            <testcase
+                name="testRouteView"
+                time="3.015"
+                classname="com.pickdropfleet.admin.test.Admintest">
+            </testcase>
+            <testcase
+                name="adminLogin"
+                time="2.723"
+                classname="com.pickdropfleet.admin.test.Admintest">
+            </testcase>
+            <testcase
+                name="testSchoolView"
+                time="4.501"
+                classname="com.pickdropfleet.admin.test.Admintest">
+            </testcase>
+            <testcase
+                name="testVehicleView"
+                time="2.885"
+                classname="com.pickdropfleet.admin.test.Admintest">
+            </testcase>
+            <testcase
+                name="createKitchenByAdmin"
+                time="10.331"
+                classname="com.pickdropfleet.admin.test.Admintest">
+            </testcase>
+            <testcase
+                name="testViewUser"
+                time="3.442"
+                classname="com.pickdropfleet.admin.test.Admintest">
+            </testcase>
+            <testcase
+                name="adminLogout"
+                time="2.420"
+                classname="com.pickdropfleet.admin.test.Admintest">
+            </testcase>
+            <testcase
+                name="createUserByAdmin"
+                time="12.950"
+                classname="com.pickdropfleet.admin.test.Admintest">
+            </testcase>
+            <testcase
+                name="testMenuView"
+                time="4.160"
+                classname="com.pickdropfleet.admin.test.Admintest">
+            </testcase>
+</testsuite>

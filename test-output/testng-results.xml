@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="13" total="15" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-06-14T17:18:13 IST" name="Suite" finished-at="2023-06-14T17:18:33 IST" duration-ms="20470">
+    <groups>
+    </groups>
+    <test started-at="2023-06-14T17:18:13 IST" name="KitchdenAdminTest" finished-at="2023-06-14T17:18:33 IST" duration-ms="20470">
+      <class name="com.pickdropfleet.admin.test.Kitchenadmintest">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.pickdropfleet.admin.test.Kitchenadmintest@2f62ea70]" started-at="2023-06-14T17:18:13 IST" name="browserLaunch" finished-at="2023-06-14T17:18:20 IST" duration-ms="6550" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserLaunch -->
+        <test-method signature="kitchenAdminLogin()[pri:0, instance:com.pickdropfleet.admin.test.Kitchenadmintest@2f62ea70]" started-at="2023-06-14T17:18:20 IST" name="kitchenAdminLogin" finished-at="2023-06-14T17:18:22 IST" duration-ms="2806" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- kitchenAdminLogin -->
+        <test-method signature="testFoodMenu()[pri:9, instance:com.pickdropfleet.admin.test.Kitchenadmintest@2f62ea70]" started-at="2023-06-14T17:18:23 IST" name="testFoodMenu" finished-at="2023-06-14T17:18:33 IST" duration-ms="10917" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFoodMenu -->
+      </class> <!-- com.pickdropfleet.admin.test.Kitchenadmintest -->
+    </test> <!-- KitchdenAdminTest -->
+  </suite> <!-- Suite -->
+</testng-results>
