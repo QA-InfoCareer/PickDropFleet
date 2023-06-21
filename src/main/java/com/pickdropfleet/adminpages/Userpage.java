@@ -307,9 +307,9 @@ public class Userpage {
 		  
 		  driver.findElement(By.xpath("//input[@id = 'user_Code']")).clear();
 		  
-		  driver.findElement(By.xpath("user_Mobile")).clear();
+		  driver.findElement(By.xpath("//input[@id = 'user_Mobile']")).clear();
 		  
-		  driver.findElement(By.xpath("user_Email")).clear();
+		  driver.findElement(By.xpath("//input[@id = 'user_Email']")).clear();
 		  
 		  driver.findElement(By.xpath("//input[@id = 'user_Aadhar']")).clear();
 		  
@@ -328,92 +328,7 @@ public class Userpage {
 	      driver.findElement(By.xpath("//input[@id = 'user_Postal']")).clear();
 	   
 	   }
-	   
-	   public void mandatoryInputs(String firstName, String lastName, String userCode, String mobileNum,
-			  
-			  String Dob, String randomEmail, String aadhaarNum, String panNum, 
-			  
-			  String address, String city, String state,
-			  
-			  String postalCode, String country) throws IOException {
-		  
-		  Utils utils = new Utils(driver);
-		  
-		  Screenshot screenshot = new Screenshot(driver);
-		  
-		  utils.clickVisibilityOfElementLocated(driver, kitchenName, 10);
-			 
-		String valueToClick = "SekarKitchen"; // The value to match and click
-			 
-		utils.clickElementIfPresent(driver, valueToClick);
-		  
-		  utils.sendKeysWithExplicitWait(driver, firstname, firstName, 10);
-			
-		  utils.sendKeysWithExplicitWait(driver, usercode, userCode, 10);
-		  
-		  utils.clickVisibilityOfElementLocated(driver, role, 10);
-			 
-		  utils.clickVisibilityOfElementLocated(driver, roleValue, 10);
-		  
-		  utils.sendKeysWithExplicitWait(driver, mobileno, mobileNum, 10);
-			
-		  utils.sendKeysWithExplicitWait(driver, dob, Dob, 10);
-		  
-		  utils.clickVisibilityOfElementLocated(driver, clickBloodGroup, 10);
-			 
-		  utils.clickVisibilityOfElementLocated(driver, bloodGroupValue, 10);
-		  
-		  utils.sendKeysWithExplicitWait(driver, email, randomEmail, 10);
-			 
-		  utils.sendKeysWithExplicitWait(driver, AadharNumber, aadhaarNum, 10);
-			 
-		  utils.sendKeysWithExplicitWait(driver, PanNumber, panNum, 10);
-		  
-		  utils.sendKeysWithExplicitWait(driver, Address, address, 10);
-			 
-		  utils.sendKeysWithExplicitWait(driver, Country, country, 10);
-			
-		  utils.sendKeysWithExplicitWait(driver, State, state, 10);
-			 
-		  utils.sendKeysWithExplicitWait(driver, City, city, 10);
-			 
-		  utils.sendKeysWithExplicitWait(driver, Postalcode, postalCode, 10);
-		  
-		  screenshot.takeScreenshot();
-			
-		  utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
-		     
-		  screenshot.takeScreenshot();
-		  
-	  }
-	   
-	   public void nonMandatory(String lastName, String education) {
-		   
-		   Utils utils = new Utils(driver);
-		   
-		   utils.sendKeysWithExplicitWait(driver, lastname, lastName, 10);
-		   
-		   utils.clickVisibilityOfElementLocated(driver, clickGender, 10);
-			 
-		     String gender = "Male";
-		     
-		   utils.clickElementIfPresent(driver, gender);
-		   
-		   utils.clickVisibilityOfElementLocated(driver, clickMaritalStatus, 10);
-			
-		   utils.clickVisibilityOfElementLocated(driver, maritalStatusValue, 10);
-		   
-		   utils.sendKeysWithExplicitWait(driver, Education, education, 10);
-		   
-	   }
-	 
-	 
-	   public void emptyInputs() {
-		   
-		   Utils utils = new Utils(driver);
-		   
-		   utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
-	   }
+
 	 
 	 
 	 

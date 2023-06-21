@@ -281,11 +281,11 @@ public class Admintest {
 			   
 			   driver.findElement(By.xpath("//button[text() = 'OK']")).click();
 			   
-			   userPage.clearField();
+			   driver.navigate().refresh();
 			   
 		   } else {
 			   
-			   
+			   System.out.println();
 		   }
 	   }
 	    			   		
