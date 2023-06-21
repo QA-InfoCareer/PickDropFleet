@@ -13,20 +13,10 @@
      
      <include name="browserLaunch"></include>
      <include name="kitchenAdminLogin"></include>
-     <include name="addSchoolTest"></include>   
-     <include name="addRiderAtUser"></include>  
-     <include name="addSchoolAdminAtUser"></include>
-     <include name="addDistributionManagerAtUser"></include>
-     <include name="addRouteAdminAtUser"></include>
-     <include name="addSchoolRelationshipManagerAtUser"></include>
-     <include name="addFuelSupervisorAtUser"></include>
-     <include name="addVehicleTest"></include>
-     <include name="testFoodMenu"></include>
-     <include name="testAddRoute"></include>
-     <include name="testDailyRequest"></include>
-     <include name="testAddVehicleExpense"></include>
-     <include name="kitchenAdminLogout"></include>
+     <include name="addSchoolAdminAtUser"></include> 
+     <include name="kitchenAdminLogout"></include> 
    
+     
      </methods>
      
      

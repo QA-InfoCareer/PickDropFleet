@@ -9,11 +9,13 @@ import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.json.StaticInitializerCoercer;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.python.icu.impl.Utility;
 
 import com.github.dockerjava.core.dockerfile.DockerfileStatement.Add;
 import com.pickdropfleet.utils.Utils;
@@ -29,119 +31,91 @@ public class Userpage {
    WebElement dashboardIcon;
    
    // It selects user in dashboard
-	@FindBy(xpath = "//h6[text() = 'User']")
-   WebElement clickUser;
+   By clickUser = By.xpath("//h6[text() = 'User']");
    
    // It selects user
-   @FindBy(xpath = "//a[text()='+ Create User']")
-   WebElement createUser;
+   By createUser = By.xpath("//a[text()='+ Create User']");
    
    // it upload image
    By imageUpload = By.xpath("//input[@type='file']");
    
     // It selects kitchen name
-   @FindBy(xpath = "//em[normalize-space()='Select Kitchen Name']")
-   WebElement kitchenName;
+   By kitchenName = By.xpath("//em[normalize-space()='Select Kitchen Name']");
    
     // It selects kitchen value
-   @FindBy(xpath = "//li[text() = 'Dominos Kitchens']")
-   WebElement kitchenNameValue;
+   By kitchenNameValue = By.xpath("//li[text() = 'Dominos Kitchens']");
    
     // enter firstname
-   @FindBy(xpath = "//input[@id = 'user_FirstName']")
-   WebElement firstname;
+   By firstname = By.xpath("//input[@id = 'user_FirstName']");
    
    // enter lastname
-   @FindBy(xpath = "//input[@id = 'user_LastName']") 
-   WebElement lastname;
+   By lastname = By.xpath("//input[@id = 'user_LastName']");
    
    // enter usercode
-   @FindBy(xpath = "//input[@id = 'user_Code']")
-   WebElement usercode;
+   By usercode = By.xpath("//input[@id = 'user_Code']");
    
     // It selects role
-   @FindBy(xpath = "//div/em[text() = 'Select Role']")
-   WebElement role;
+   By role = By.xpath("//div[normalize-space()='Kitchen Admin']");
    
     // It selects role value
-   @FindBy(xpath = "//li[normalize-space()='Kitchen Admin']")
-   WebElement roleValue;
+   By roleValue = By.xpath("//li[normalize-space()='Kitchen Admin']");
    
     // enter mobile number
-   @FindBy(xpath = "//input[@id = 'user_Mobile']")
-   WebElement mobileno;
+   By mobileno = By.xpath("//input[@id = 'user_Mobile']");
    
    // enter dob
-   @FindBy(xpath = "(//div[@class = 'css-l5c1s3'] //input[@id='user_Dob'])[1]")
-   WebElement dob;
+   By dob = By.xpath("//input[@type = 'date']");
    
    // It clicks gender
-   @FindBy(xpath = "//div[@class = 'css-l5c1s3'] //div[@id = 'user_Gender']")
-   WebElement clickGender;
+   By clickGender = By.xpath("//div[@id = 'user_Gender']");
    
    // It selects gender value
-   @FindBy(xpath = "//li[text() = 'Male']")
-   WebElement selectGender;
+   By selectGender = By.xpath("//li[text() = 'Male']");
    
    // It clicks blood group
-   @FindBy(xpath = "//em[text() = 'Select Blood Group']")
-   WebElement clickBloodGroup;
+   By clickBloodGroup = By.xpath("//em[text() = 'Select Blood Group']");
 		   
    // It selects blood group value
-   @FindBy(xpath = "//li[text() = 'O+VE']")
-   WebElement bloodGroupValue;
+   By bloodGroupValue = By.xpath("//li[text() = 'O+VE']");
    
    // It clicks marital status
-   @FindBy(xpath = "//div[@id = 'user_Maritalstatus']")
-   WebElement clickMaritalStatus;
+   By clickMaritalStatus = By.xpath("//div[@id = 'user_Maritalstatus']");
    
    // It selects marital status value
-   @FindBy(xpath = "//li[text()='Unmarried']")
-   WebElement maritalStatusValue;
+   By maritalStatusValue = By.xpath("//li[text()='Unmarried']");
    
    // enter email
-   @FindBy(xpath = "//input[@id = 'user_Email']")
-   WebElement email;
+   By email = By.xpath("//input[@id = 'user_Email']");
    
    // enter aadhar number
-   @FindBy(xpath = "//input[@id = 'user_Aadhar']")
-   WebElement AadharNumber;
+   By AadharNumber = By.xpath("//input[@id = 'user_Aadhar']");
    
    // enter pan number
-   @FindBy(xpath = "//input[@id = 'user_Pan']")
-   WebElement PanNumber;
+   By PanNumber = By.xpath("//input[@id = 'user_Pan']");
    
    // enter education
-   @FindBy(xpath = "//input[@id = 'user_Education']")
-   WebElement Education;
+   By Education = By.xpath("//input[@id = 'user_Education']");
    
    // enter address
-   @FindBy(xpath = "//input[@id = 'user_Address']")
-   WebElement Address;
+   By Address = By.xpath("//input[@id = 'user_Address']");
    
    // enter country
-   @FindBy(css = "div:nth-child(18) div:nth-child(1) div:nth-child(2) input:nth-child(1)")
-   WebElement Country;
+   By Country = By.cssSelector("div:nth-child(18) div:nth-child(1) div:nth-child(2) input:nth-child(1)");
    
    // enter state
-   @FindBy(css = "div:nth-child(17) div:nth-child(1) div:nth-child(2) input:nth-child(1)")
-   WebElement State;
+   By State = By.cssSelector("div:nth-child(17) div:nth-child(1) div:nth-child(2) input:nth-child(1)");
    
    // enter city
-   @FindBy(xpath = "//input[@id = 'user_City']")
-   WebElement City;
+   By City = By.xpath("//input[@id = 'user_City']");
    
    // enter postal code
-   @FindBy(xpath = "//input[@id = 'user_Postal']")
-   WebElement Postalcode;
+   By Postalcode = By.xpath("//input[@id = 'user_Postal']");
    
     // It clicks Save btn
-   @FindBy(xpath = "//button[text() = 'Save']")
-   WebElement Savebtn;
+   By Savebtn = By.xpath("//button[text() = 'Save']");
    
     // It clicks Ok btn
-   @FindBy(xpath = "//button[text() = 'OK']")
-   WebElement Okbtn;
+   By Okbtn = By.xpath("//button[text() = 'OK']");
    
    //////// Validation Locators /////////
    public WebElement getEmailErrorMessage() {
@@ -226,109 +200,71 @@ public class Userpage {
 	     
 	     Screenshot screenshot = new Screenshot(driver);
 	   
-	     utils.clickElementWithWait(driver, clickUser);
+	     utils.clickVisibilityOfElementLocated(driver, clickUser, 10);
 		 
-	     utils.clickElementWithWait(driver, createUser);
-	     
-	     utils.setImplicitWait(10);
+	     utils.clickVisibilityOfElementLocated(driver, createUser, 10);
 		 
-	     driver.findElement(imageUpload).sendKeys("C:\\Users\\DELL\\OneDrive\\Pictures\\restapi.png");
+	     utils.sendKeysWithExplicitWait(driver, imageUpload, "C:\\Users\\DELL\\OneDrive\\Pictures\\restapi.png", 10);
 	     
-	     utils.setImplicitWait(10);
-	     
-		 utils.clickElementWithWait(driver, kitchenName);
+		 utils.clickVisibilityOfElementLocated(driver, kitchenName, 10);
 		 
-		 String valueToClick = "FriedKitchen"; // The value to match and click
+		 String valueToClick = "SekarKitchen"; // The value to match and click
 		 
 		 utils.clickElementIfPresent(driver, valueToClick);
 		 
-		 utils.setImplicitWait(20);
+		 utils.sendKeysWithExplicitWait(driver, firstname, firstName, 10);
 		 
-		 firstname.sendKeys(firstName);
-		 
-		 utils.setImplicitWait(10);
-		 
-		 lastname.sendKeys(lastName);
-		 
-		 utils.setImplicitWait(10);
-		 
-		 usercode.sendKeys(userCode);
-		 
-		 utils.setImplicitWait(10);
-		 
-		 utils.clickElementWithWait(driver, role);
-		 
-		 utils.clickElementWithWait(driver, roleValue);
-		 
-		 utils.setImplicitWait(10);
-		 
-		 mobileno.sendKeys(mobileNum);
-		 
-		 utils.setImplicitWait(10);
+		 utils.sendKeysWithExplicitWait(driver, lastname, lastName, 10);
 		
-		 dob.sendKeys(Dob);
+		 utils.sendKeysWithExplicitWait(driver, usercode, userCode, 10);
 		 
-		 utils.setImplicitWait(10);
+		 utils.clickVisibilityOfElementLocated(driver, role, 10);
+		 
+		 utils.clickVisibilityOfElementLocated(driver, roleValue, 10);
+		 
+		 utils.sendKeysWithExplicitWait(driver, mobileno, mobileNum, 10);
 		
-		 utils.clickElementWithWait1(driver, clickGender);
+		 utils.sendKeysWithExplicitWait(driver, dob, Dob, 10);
+		
+		 utils.clickVisibilityOfElementLocated(driver, clickGender, 10);
 		 
 	     String gender = "Male";
 	     
 	     utils.clickElementIfPresent(driver, gender);
 		  
-		 utils.clickElementWithWait(driver, clickBloodGroup);
+		 utils.clickVisibilityOfElementLocated(driver, clickBloodGroup, 10);
 		 
-		 utils.clickElementWithWait(driver, bloodGroupValue);
+		 utils.clickVisibilityOfElementLocated(driver, bloodGroupValue, 10);
 		
-		 utils.clickElementWithWait(driver, clickMaritalStatus);
+		 utils.clickVisibilityOfElementLocated(driver, clickMaritalStatus, 10);
 		
-		 utils.clickElementWithWait(driver, maritalStatusValue);
+		 utils.clickVisibilityOfElementLocated(driver, maritalStatusValue, 10);
 			
-		 email.sendKeys(randomEmail);
+		 utils.sendKeysWithExplicitWait(driver, email, randomEmail, 10);
 		 
-		 utils.setImplicitWait(10);
+		 utils.sendKeysWithExplicitWait(driver, AadharNumber, aadhaarNum, 10);
 		 
-		 AadharNumber.sendKeys(aadhaarNum);
-		 
-		 utils.setImplicitWait(10);
-		 
-		 PanNumber.sendKeys(panNum);
-		 
-		 utils.setImplicitWait(10);
+		 utils.sendKeysWithExplicitWait(driver, PanNumber, panNum, 10);
 		
-		 Education.sendKeys(education);
-		 
-		 utils.setImplicitWait(10);
-		 
-		 Address.sendKeys(address);
-		 
-		 utils.setImplicitWait(10);
-		 
-		 Country.sendKeys(country);
-		 
-		 utils.setImplicitWait(10);
+		 utils.sendKeysWithExplicitWait(driver, Education, education, 10);
 		
-		 State.sendKeys(state);
+		 utils.sendKeysWithExplicitWait(driver, Address, address, 10);
 		 
-		 utils.setImplicitWait(10);
-		 
-		 City.sendKeys(city);
-		 
-		 utils.setImplicitWait(10);
+		 utils.sendKeysWithExplicitWait(driver, Country, country, 10);
 		
-		 Postalcode.sendKeys(postalCode);
+		 utils.sendKeysWithExplicitWait(driver, State, state, 10);
 		 
-		 utils.setImplicitWait(10);
-		
+		 utils.sendKeysWithExplicitWait(driver, City, city, 10);
+		 
+		 utils.sendKeysWithExplicitWait(driver, Postalcode, postalCode, 10);
+	
 	     screenshot.takeScreenshot();
-		
-	     utils.clickElementWithWait(driver, Savebtn);
-		 
+	
+	     utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
+	     
 		 screenshot.takeScreenshot();
 		 
 		 utils.setImplicitWait(10);
-		 
-		 utils.okClickElementWithWait(driver, Okbtn);
         
          return "Success";
 	 }
@@ -343,12 +279,141 @@ public class Userpage {
 	    
 	 }
 	   
+	    public boolean isErrorMessageDisplayed() {
+	        
+			Utils utils = new Utils(driver);
+			
+			String xpath = "swal2-html-container";
+			
+		    return utils.findElementByXPath(xpath).isDisplayed();
+	        
+	    }
 	    
+	    public String getErrorMessage() {
+	        
+	    	Utils utils = new Utils(driver);
+	    	
+	    	String xpath = "swal2-html-container";
+	        
+	    	return utils.findElementByXPath(xpath).getText();
+	    }
 	 
 	 
+	   public void clearField() {
+		   
+		  driver.findElement(By.xpath("//input[@id = 'user_FirstName']")).clear();
+		   
+		  driver.findElement(By.xpath("//input[@id = 'user_LastName']")).clear();
+		  
+		  driver.findElement(By.xpath("//input[@id = 'user_Code']")).clear();
+		  
+		  driver.findElement(By.xpath("user_Mobile")).clear();
+		  
+		  driver.findElement(By.xpath("user_Email")).clear();
+		  
+		  driver.findElement(By.xpath("//input[@id = 'user_Aadhar']")).clear();
+		  
+		  driver.findElement(By.xpath("//input[@id = 'user_Pan']")).clear();
+		  
+		  driver.findElement(By.xpath("//input[@id = 'user_Education']")).clear();
+		  
+		  driver.findElement(By.xpath("//input[@id = 'user_Address']")).clear();
+		  
+		  driver.findElement(By.xpath("div:nth-child(18) div:nth-child(1) div:nth-child(2) input:nth-child(1)")).clear();
+		  
+		  driver.findElement(By.xpath("div:nth-child(17) div:nth-child(1) div:nth-child(2) input:nth-child(1)")).clear();
+	   
+	      driver.findElement(By.xpath("//input[@id = 'user_City']")).clear();
+	      
+	      driver.findElement(By.xpath("//input[@id = 'user_Postal']")).clear();
+	   
+	   }
+	   
+	   public void mandatoryInputs(String firstName, String lastName, String userCode, String mobileNum,
+			  
+			  String Dob, String randomEmail, String aadhaarNum, String panNum, 
+			  
+			  String address, String city, String state,
+			  
+			  String postalCode, String country) throws IOException {
+		  
+		  Utils utils = new Utils(driver);
+		  
+		  Screenshot screenshot = new Screenshot(driver);
+		  
+		  utils.clickVisibilityOfElementLocated(driver, kitchenName, 10);
+			 
+		String valueToClick = "SekarKitchen"; // The value to match and click
+			 
+		utils.clickElementIfPresent(driver, valueToClick);
+		  
+		  utils.sendKeysWithExplicitWait(driver, firstname, firstName, 10);
+			
+		  utils.sendKeysWithExplicitWait(driver, usercode, userCode, 10);
+		  
+		  utils.clickVisibilityOfElementLocated(driver, role, 10);
+			 
+		  utils.clickVisibilityOfElementLocated(driver, roleValue, 10);
+		  
+		  utils.sendKeysWithExplicitWait(driver, mobileno, mobileNum, 10);
+			
+		  utils.sendKeysWithExplicitWait(driver, dob, Dob, 10);
+		  
+		  utils.clickVisibilityOfElementLocated(driver, clickBloodGroup, 10);
+			 
+		  utils.clickVisibilityOfElementLocated(driver, bloodGroupValue, 10);
+		  
+		  utils.sendKeysWithExplicitWait(driver, email, randomEmail, 10);
+			 
+		  utils.sendKeysWithExplicitWait(driver, AadharNumber, aadhaarNum, 10);
+			 
+		  utils.sendKeysWithExplicitWait(driver, PanNumber, panNum, 10);
+		  
+		  utils.sendKeysWithExplicitWait(driver, Address, address, 10);
+			 
+		  utils.sendKeysWithExplicitWait(driver, Country, country, 10);
+			
+		  utils.sendKeysWithExplicitWait(driver, State, state, 10);
+			 
+		  utils.sendKeysWithExplicitWait(driver, City, city, 10);
+			 
+		  utils.sendKeysWithExplicitWait(driver, Postalcode, postalCode, 10);
+		  
+		  screenshot.takeScreenshot();
+			
+		  utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
+		     
+		  screenshot.takeScreenshot();
+		  
+	  }
+	   
+	   public void nonMandatory(String lastName, String education) {
+		   
+		   Utils utils = new Utils(driver);
+		   
+		   utils.sendKeysWithExplicitWait(driver, lastname, lastName, 10);
+		   
+		   utils.clickVisibilityOfElementLocated(driver, clickGender, 10);
+			 
+		     String gender = "Male";
+		     
+		   utils.clickElementIfPresent(driver, gender);
+		   
+		   utils.clickVisibilityOfElementLocated(driver, clickMaritalStatus, 10);
+			
+		   utils.clickVisibilityOfElementLocated(driver, maritalStatusValue, 10);
+		   
+		   utils.sendKeysWithExplicitWait(driver, Education, education, 10);
+		   
+	   }
 	 
 	 
-	 
+	   public void emptyInputs() {
+		   
+		   Utils utils = new Utils(driver);
+		   
+		   utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
+	   }
 	 
 	 
 	 

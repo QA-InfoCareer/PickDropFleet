@@ -20,80 +20,58 @@ public class Addschoolrelationshipmanager {
 	@FindBy(xpath = "//button[@id = 'menu_slider']")
 	WebElement dashboardIcon; // it selects dashsboars icon
 
-	@FindBy(xpath = "//h6[text() = 'User']")
-	WebElement clickUser; // it selects user in dashboard
+	By clickUser = By.xpath("//h6[text() = 'User']");
 
-	@FindBy(xpath = "//a[text() = '+ Add User']")
-	WebElement Adduser;
+	By Adduser = By.xpath("//a[text() = '+ Add User']");
 
-	@FindBy(xpath = "//input[@type='file']")
-	WebElement imageUpload; // it uploads image
+	By imageUpload = By.xpath("//input[@type='file']"); // it uploads image
 
-	@FindBy(id = "user_FirstName")
-	WebElement Firstname; // enter firstname
+	By Firstname = By.id("user_FirstName"); // enter firstname
 
-	@FindBy(id = "user_LastName")
-	WebElement Lastname; // enter lastname
+	By Lastname = By.id("user_LastName"); // enter lastname
 
-	@FindBy(id = "user_Code")
-	WebElement Usercode; // enter usercode
+	By Usercode = By.id("user_Code"); // enter usercode
 
-	@FindBy(css = "div.MuiBox-root.css-hboir5 main.MuiBox-root.css-vognfw:nth-child(3) div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-12nms3t:nth-child(3) div.MuiCardContent-root.css-3ofp2w div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-3.css-1h77wgb:nth-child(2) div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-4.css-11xjpbv:nth-child(4) div.css-l5c1s3 div.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.css-59zgpl:nth-child(2) > div.MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input.css-1tbimj1")
-	WebElement Role; // it clicks role
+	By Role = By.cssSelector(
+			"div.MuiBox-root.css-hboir5 main.MuiBox-root.css-vognfw:nth-child(3) div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-12nms3t:nth-child(3) div.MuiCardContent-root.css-3ofp2w div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-3.css-1h77wgb:nth-child(2) div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-4.css-11xjpbv:nth-child(4) div.css-l5c1s3 div.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.css-59zgpl:nth-child(2) > div.MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input.css-1tbimj1"); // it
+																																																																																																																																																									// clicks
+																																																																																																																																																									// role
 
-	@FindBy(xpath = "//li[text()='School Admin']")
-	WebElement Rolevalue; // it selects role value
+	By Rolevalue = By.xpath("//li[text()='Driver']"); // it selects role value
 
-	@FindBy(css = "div:nth-child(5) div:nth-child(1) div:nth-child(2) div:nth-child(1)")
-	WebElement Schoolname;
+	By Schoolname = By.cssSelector("div:nth-child(5) div:nth-child(1) div:nth-child(2) div:nth-child(1)");
 
-	@FindBy(xpath = "//li[text() = 'HBOA School']")
-	WebElement SchoolNamevalue;
+	By SchoolNamevalue = By.xpath("//li[text() = 'HBOA School']");
 
-	@FindBy(id = "user_Mobile")
-	WebElement Mobileno; // enter mobile number
+	By Mobileno = By.id("user_Mobile"); // enter mobile number
 
-	@FindBy(id = "user_Dob")
-	WebElement dob; // enter dob
+	By dob = By.id("user_Dob"); // enter dob
 
-	@FindBy(id = "user_Gender")
-	WebElement Gender; // it clicks gender
+	By Gender = By.id("user_Gender"); // it clicks gender
 
-	@FindBy(xpath = "//li[text() = 'Male']")
-	WebElement Gendervalue; // it selects gender value
+	By Gendervalue = By.xpath("//li[text() = 'Male']"); // it selects gender value
 
-	@FindBy(xpath = "//em[normalize-space()='Select Blood Group']")
-	WebElement Bloodgroup; // it clicks bloodgroup
+	By Bloodgroup = By.xpath("//em[normalize-space()='Select Blood Group']"); // it clicks bloodgroup
 
-	@FindBy(xpath = "//li[@data-value='5']")
-	WebElement Bloodgroupvalue; // it selects blood group value
+	By Bloodgroupvalue = By.xpath("//li[@data-value='5']"); // it selects blood group value
 
-	@FindBy(id = "user_Maritalstatus")
-	WebElement Maritalstatus; // it clicks marital status
+	By Maritalstatus = By.id("user_Maritalstatus"); // it clicks marital status
 
-	@FindBy(xpath = "//li[text() ='Unmarried']")
-	WebElement Maritalstatusvalue;
+	By Maritalstatusvalue = By.xpath("//li[text() ='Unmarried']");
 
-	@FindBy(id = "user_Email")
-	WebElement email; // enter email
+	By email = By.id("user_Email"); // enter email
 
-	@FindBy(id = "user_Aadhar")
-	WebElement Aadharnumber; // enter aadhar
+	By Aadharnumber = By.id("user_Aadhar"); // enter aadhar
 
-	@FindBy(id = "user_Pan")
-	WebElement Pannumber; // enter pan
+	By Pannumber = By.id("user_Pan"); // enter pan
 
-	@FindBy(id = "user_Education")
-	WebElement Education; // enter education
+	By Education = By.id("user_Education"); // enter education
 
-	@FindBy(xpath = "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[1]")
-	WebElement Locationaddress; // it clicks location icon
+	By Locationaddress = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[1]"); // it
 
-	@FindBy(xpath = "//input[@placeholder = 'Search Places ...']")
-	WebElement Searchplaces; // enter address
+	By Searchplaces = By.xpath("//input[@placeholder = 'Search Places ...']"); // enter address
 
-	@FindBy(xpath = "(//button[text() = 'Save'])[2]")
-	WebElement Saveaddress; // it saves address
+	By Saveaddress = By.xpath("(//button[text() = 'Save'])[2]"); // it saves address
 
 	@FindBy(xpath = "//body[1]/div[1]/div[1]/main[1]/div[3]/div[1]/form[1]/div[2]/div[17]/div[1]/div[2]/input[1]")
 	WebElement Country; // enter country
@@ -107,11 +85,10 @@ public class Addschoolrelationshipmanager {
 	@FindBy(id = "user_Postal")
 	WebElement Postalcode;
 
-	@FindBy(xpath = "//button[text() = 'Save']")
-	WebElement Savebtn;
+	By Savebtn = By.xpath("//button[text() = 'Save']");
 
-	@FindBy(xpath = "//button[text() = 'OK']")
-	WebElement Okbtn;
+	By Okbtn = By.xpath("//button[text() = 'OK']");
+
 
 	@FindBy(xpath = "//div[text() = 'EmailId already exist']")
 	WebElement emailValidation;	
@@ -188,25 +165,19 @@ public class Addschoolrelationshipmanager {
 
 		Utils utils = new Utils(driver);
 
-		utils.clickElementWithWait(driver, clickUser);
+		utils.clickVisibilityOfElementLocated(driver, clickUser, 10);
 
-		utils.clickElementWithWait(driver, Adduser);
+		utils.clickVisibilityOfElementLocated(driver, Adduser, 10);
 
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, imageUpload, uploadImage, 10);
 
-		imageUpload.sendKeys(uploadImage);
+		utils.sendKeysWithExplicitWait(driver, Firstname, firstName, 10);
 
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, Lastname, lastName, 10);
+		
+		utils.sendKeysWithExplicitWait(driver, Usercode, userCode, 10);
 
-		Firstname.sendKeys(firstName);
-
-		utils.setImplicitWait(10);
-
-		Usercode.sendKeys(userCode);
-
-		utils.setImplicitWait(10);
-
-		utils.clickElementWithWait(driver, Role);
+		utils.clickVisibilityOfElementLocated(driver, Role, 10);
 
 		List<WebElement> schoolRelationships = driver.findElements(By.tagName("li"));
 
@@ -215,57 +186,41 @@ public class Addschoolrelationshipmanager {
 			schoolRelationships.get(6).click();
 		}
 
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, Mobileno, mobileNum, 10); // 10 digit auto generate
 
-		Mobileno.sendKeys(mobileNum); // 10 digit auto generate
+		utils.sendKeysWithExplicitWait(driver, dob, Dob, 10);
 
-		utils.setImplicitWait(10);
+		utils.clickVisibilityOfElementLocated(driver, Gender, 10);
 
-		dob.sendKeys(Dob);
+		utils.clickVisibilityOfElementLocated(driver, Gendervalue, 10);
 
-		utils.setImplicitWait(10);
+		utils.clickVisibilityOfElementLocated(driver, Bloodgroup, 10);
 
-		utils.clickElementWithWait(driver, Gender);
+		utils.clickVisibilityOfElementLocated(driver, Bloodgroupvalue, 10);
 
-		utils.clickElementWithWait(driver, Gendervalue);
+		utils.clickVisibilityOfElementLocated(driver, Maritalstatus, 10);
 
-		utils.clickElementWithWait(driver, Bloodgroup);
+		utils.clickVisibilityOfElementLocated(driver, Maritalstatusvalue, 10);
 
-		utils.clickElementWithWait(driver, Bloodgroupvalue);
+		utils.sendKeysWithExplicitWait(driver, email, randomEmail4, 10); // random email
 
-		utils.clickElementWithWait(driver, Maritalstatus);
+		utils.sendKeysWithExplicitWait(driver, Aadharnumber, aadhaarNum, 10); // 12 digits
 
-		utils.clickElementWithWait(driver, Maritalstatusvalue);
+		utils.sendKeysWithExplicitWait(driver, Pannumber, panNum, 10); // 10 digits
 
-		email.sendKeys(randomEmail4);
+		utils.sendKeysWithExplicitWait(driver, Education, education, 10);
 
-		utils.setImplicitWait(10);
+		utils.clickVisibilityOfElementLocated(driver, Locationaddress, 10);
 
-		Aadharnumber.sendKeys(aadhaarNum); // 12 digits
+		utils.sendKeysWithExplicitWait(driver, Searchplaces, searchPlaces, 10);
 
-		utils.setImplicitWait(10);
+		utils.clickVisibilityOfElementLocated(driver, Saveaddress, 10);
 
-		Pannumber.sendKeys(panNum); // 10 digits
-
-		utils.setImplicitWait(10);
-
-		Education.sendKeys(education);
-
-		utils.setImplicitWait(10);
-
-		utils.clickElementWithWait(driver, Locationaddress);
-
-		utils.setImplicitWait(10);
-
-		Searchplaces.sendKeys(searchPlaces);
-
-		utils.clickElementWithWait(driver, Saveaddress);
-
-		String autoFillCity4 = City.getAttribute("value");
+		String autoFillCity4 = (City).getAttribute("value");
 		System.out.println("Auto Fill City : " + autoFillCity4);
-		String autoFillState4 = State.getAttribute("value");
-		String autoFillCountry4 = Country.getAttribute("value");
-		String autoFillPostalCode4 = Postalcode.getAttribute("value");
+		String autoFillState4 = (State).getAttribute("value");
+		String autoFillCountry4 = (Country).getAttribute("value");
+		String autoFillPostalCode4 = (Postalcode).getAttribute("value");
 
 		if (autoFillCity4.equals("Chennai") && autoFillState4.equals("Tamilnadu") &&
 
@@ -277,16 +232,16 @@ public class Addschoolrelationshipmanager {
 
 			System.out.println("Auto-filled values are incorrect. Making changes...");
 
-			City.clear();
-			City.sendKeys("Chennai");
-			State.clear();
+			(City).clear();
+			(City).sendKeys("Chennai");
+			(State).clear();
 			utils.setImplicitWait(1000);
-			State.sendKeys("Tamilnadu");
+			(State).sendKeys("Tamilnadu");
 			utils.setImplicitWait(1000);
-			Country.clear();
-			Country.sendKeys("India");
-			Postalcode.clear();
-			Postalcode.sendKeys("600028");
+			(Country).clear();
+			(Country).sendKeys("India");
+			(Postalcode).clear();
+			(Postalcode).sendKeys("600028");
 
 		}
 
@@ -296,7 +251,7 @@ public class Addschoolrelationshipmanager {
 
 		utils.setImplicitWait(10);
 
-		utils.clickElementWithWait(driver, Savebtn);
+		utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
 
 		utils.setImplicitWait(10);
 
@@ -304,7 +259,7 @@ public class Addschoolrelationshipmanager {
 
 		utils.setImplicitWait(10);
 
-		utils.clickElementWithWait(driver, Okbtn);
+		utils.clickVisibilityOfElementLocated(driver, Okbtn, 10);
 
 		return "New School Relationship Manager added";
 	}
@@ -314,6 +269,8 @@ public class Addschoolrelationshipmanager {
 	public static String generateRandomEmail4() {
 
 		long timestamp = System.currentTimeMillis();
+		
+		System.out.println(timestamp);
 
 		int randomNumber = new Random().nextInt(100000);
 

@@ -22,7 +22,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
 
 import com.pickdropfleet.adminpages.Loginpage;
@@ -121,13 +120,8 @@ public class Kitchenadmintest {
 			// enter username and password
 			loginPage.loginAction(username, password);
 
-			// click login btn
-			loginPage.clickLoginBtn();
-
 			////// Title Verification //////
 			String title = driver.getTitle();
-
-			System.out.println("Title of the Page : " + title);
 
 			if (title.equalsIgnoreCase("PickDrop Fleet")) {
 
@@ -211,7 +205,7 @@ public class Kitchenadmintest {
     			
     			Addrider user = new Addrider(driver);
     			
-    	FileInputStream inputStream = new FileInputStream("C:\\Users\\DELL\\eclipse-workspace\\PickdropFleet\\src\\main\\resources\\Addrider.xlsx");
+    	FileInputStream inputStream = new FileInputStream("C:\\Users\\DELL\\eclipse-workspace\\PickdropFleet\\src\\main\\resources\\Adddriver.xlsx");
     			
     	  Workbook workbook = new XSSFWorkbook(inputStream);
     			 
@@ -761,6 +755,8 @@ public class Kitchenadmintest {
 
 		} catch (Exception e) {
 
+			e.getStackTrace();
+			
 			System.out.println(e);
 		}
 

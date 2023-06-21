@@ -1,15 +1,13 @@
 package com.pickdropfleet.kitchenadminpages;
 
 import java.io.IOException;
-import java.time.Duration;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pickdropfleet.utils.Utils;
 import com.pickdropflett.ss.Screenshot;
@@ -22,56 +20,43 @@ public class Addvehicleexpense {
 	WebElement DashboardIcon; // it selects dashsboars icon
 	
 	// it clicks Vehicle expense on dashboard
-	@FindBy(xpath = "//h6[text() = 'Vehicle Expense']")
-	WebElement Vehicleexpense;
+	By Vehicleexpense = By.xpath("//h6[text() = 'Vehicle Expense']");
 	
 	// create new expense
-	@FindBy(xpath = "//a[text() = '+ Add Expense']")
-	WebElement Addexpense;
+	By Addexpense = By.xpath("//a[text() = '+ Add Expense']");
 	
 	// it clicks Vehicle code
-	@FindBy(id = "vehicle_Code")
-	WebElement Vehiclecode;
+	By Vehiclecode = By.id("vehicle_Code");
 	
 	// it selects Vehiclecode value
-	@FindBy(xpath = "//li[text() = 'Veh - 63']")
-	WebElement VehicleCodevalue;
+	By VehicleCodevalue = By.xpath("//li[text() = 'Veh - 79']");
 	
 	// it selects Service type
-	@FindBy(id = "service_Type")
-	WebElement Servicetype;
+	By Servicetype = By.id("service_Type");
 	
 	// it selects Service type value
-	@FindBy(xpath = "//li[text() = 'TOLL COST']")
-	WebElement ServiceTypevalue;
+	By ServiceTypevalue = By.xpath("//li[text() = 'TOLL COST']");
 	
 	// enter No of units
-	@FindBy(id = "no_Units")
-	WebElement NoOfUnits;
+	By NoOfUnits = By.id("no_Units");
 	
 	// enter per unit cost
-	@FindBy(id = "per_UnitCost")
-	WebElement PerUnitcost;
+	By PerUnitcost = By.id("per_UnitCost");
 	
 	// enter total service cost
-	@FindBy(id = "total_ServiceCost")
-	WebElement TotalServicecost;
-	
-	// enter expense details
-	@FindBy(id = "expense_Detail")
-	WebElement Expensedetails;
+	By TotalServicecost = By.id("total_ServiceCost");
 	
 	// enter Date of expense
-	@FindBy(id = "date_Expense")
-	WebElement DateOfExpense;
+	By DateOfExpense = By.id("date_Expense");
+	
+	// enter expense details
+	By Expensedetails = By.id("expense_Detail");
 	
 	// Save btn
-	@FindBy(xpath = "//button[text() = 'Save']")
-	WebElement Savebtn;
+	By Savebtn = By.xpath("//button[text() = 'Save']");
 	
 	// Ok btn
-	@FindBy(xpath = "//button[text() = 'OK']")
-	WebElement Okbtn;
+	By Okbtn = By.xpath("//button[text() = 'OK']");
 	
 	
 	 public Addvehicleexpense(WebDriver driver) {
@@ -90,37 +75,27 @@ public class Addvehicleexpense {
 	   
 	   Utils utils = new Utils(driver);
 	   
-		utils.clickElementWithWait(driver, Vehicleexpense);
+		utils.clickVisibilityOfElementLocated(driver, Vehicleexpense, 10);
 		
-		utils.clickElementWithWait(driver, Addexpense);
+		utils.clickVisibilityOfElementLocated(driver, Addexpense, 10);
 		
-		utils.clickElementWithWait(driver, Vehiclecode);
+		utils.clickVisibilityOfElementLocated(driver, Vehiclecode, 10);
 		
-		utils.clickElementWithWait(driver, VehicleCodevalue);
+		utils.clickVisibilityOfElementLocated(driver, VehicleCodevalue, 10);
 		
-		utils.clickElementWithWait(driver, Servicetype);
+		utils.clickVisibilityOfElementLocated(driver, Servicetype, 10);
 	
-		utils.clickElementWithWait(driver, ServiceTypevalue);
+		utils.clickVisibilityOfElementLocated(driver, ServiceTypevalue, 10);
 		
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, NoOfUnits, noOfUnits, 10);
 		
-		NoOfUnits.sendKeys(noOfUnits);
+		utils.sendKeysWithExplicitWait(driver, PerUnitcost, perUnitCost, 10);
 		
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, TotalServicecost, totalServiceCost, 10);
 		
-		PerUnitcost.sendKeys(perUnitCost);
+		utils.sendKeysWithExplicitWait(driver, DateOfExpense, dateOfExpense, 10);
 		
-		utils.setImplicitWait(10);
-		
-		TotalServicecost.sendKeys(totalServiceCost);
-		
-		utils.setImplicitWait(10);
-		
-		Expensedetails.sendKeys(expenseDetails);
-		
-		utils.setImplicitWait(10);
-		
-		DateOfExpense.sendKeys(dateOfExpense);
+		utils.sendKeysWithExplicitWait(driver, Expensedetails, expenseDetails, 10);
 		
 		utils.setImplicitWait(10);
 		
@@ -128,7 +103,7 @@ public class Addvehicleexpense {
 		
 		utils.setImplicitWait(10);
 		
-		utils.clickElementWithWait(driver, Savebtn);
+		utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
 		
 		utils.setImplicitWait(10);
 		
@@ -136,7 +111,7 @@ public class Addvehicleexpense {
 		
 		utils.setImplicitWait(10);
 		
-		utils.clickElementWithWait(driver, Okbtn);
+		utils.clickVisibilityOfElementLocated(driver, Okbtn, 10);
 		
 		utils.setImplicitWait(1000);
 		

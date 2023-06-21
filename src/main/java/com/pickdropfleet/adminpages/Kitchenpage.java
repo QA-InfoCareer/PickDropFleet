@@ -129,7 +129,7 @@ public class Kitchenpage {
     	  Screenshot screenshot = new Screenshot(driver);
     	  
     	  Utils utils = new Utils(driver);
-    	  
+    	 
     	 utils.clickElementWithWait(driver, clickKitchen);
     	 
     	 utils.clickElementWithWait(driver, createKitchen);

@@ -3,6 +3,8 @@ package com.pickdropfleet.admin.test;
 import org.testng.annotations.Test;
 import org.testng.internal.TestResult;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.time.Duration;
 import java.util.Arrays;
@@ -63,24 +65,28 @@ public class Admintest {
 		
 		properties.load(input);
 		
-        String browser = properties.getProperty("browser");
+        String browser = properties.getProperty("browser1");
         
         System.out.println(browser);
         
         String url = properties.getProperty("url");
         
-        if(browser.equalsIgnoreCase("chrome")) {
+        if(browser.equalsIgnoreCase("firefox")) {
         	
-       	ChromeOptions options = new ChromeOptions();
+        	ChromeOptions options = new ChromeOptions();
 
-		options.addArguments("--remote-allow-origins=*");
-		
-		options.addArguments("--incognito");
-		
-		options.addArguments("force-device-scale-factor=1.2");
-		
-		//options.addPreference("layout.css.devPixelsPerPx", "1.2"); // firefox
-           
+    		options.addArguments("--remote-allow-origins=*");
+    		
+    		options.addArguments("--incognito");
+    		
+    	    options.addArguments("force-device-scale-factor=1.2");
+        	
+//        FirefoxOptions options = new FirefoxOptions();
+//        
+//        options.addArguments("-private");
+//        
+//		options.addPreference("layout.css.devPixelsPerPx", "1.2"); 
+//           
 			 driver = new ChromeDriver(options);
 
 			 driver.manage().window().maximize();
@@ -101,54 +107,62 @@ public class Admintest {
 		
 	   }
 	
-	@Test(priority = 1)
-	public void adminLogin() {
+	@Test(priority = 1) 
+	public void adminLogin() throws InterruptedException, IOException {
 		   
-		    try {
+		    //try {
 		    	
-		    	Loginpage loginPage = new Loginpage(driver);
+		    if(driver.getCurrentUrl() != null) {
 		    	
-		    	Properties properties = new Properties();
+		   Loginpage loginPage = new Loginpage(driver);
+		   
+		   FileInputStream inputStream = new FileInputStream("C:\\Users\\DELL\\eclipse-workspace\\PickdropFleet\\src\\main\\resources\\Superadminlogin.xlsx");
+		  
+			Workbook workbook = new XSSFWorkbook(inputStream);
+			 
+			Sheet sheet = workbook.getSheet("Sheet1");
+			
+		for (int i=1; i<sheet.getLastRowNum(); i++) {
+			
+			String userName = sheet.getRow(i).getCell(0).toString();
+			
+			  System.out.println("Super Admin username : "+ userName);
+			
+			String passKey = sheet.getRow(i).getCell(1).toString();
+			
+			  System.out.println("Super Admin password : "+ passKey);
+			  
+		  loginPage.loginAction(userName, passKey);
+			
+		    if (loginPage.isErrorMessageDisplayed() != false) {
 		    	
-		    	InputStream input = new FileInputStream("config.properties");
-				
-		    	properties.load(input);
+		    	String errorMessage = loginPage.getErrorMessage();
 		    	
-		    	String username = properties.getProperty("userName");
+		    	System.out.println("The Error Message is : " +errorMessage);
 		    	
-		    	System.out.println(username);
-		    	
-		    	String password = properties.getProperty("pwd");
-		    	
-		    	System.out.println(password);
-		    	 
-		    	// enter username and password
-		    	loginPage.loginAction(username, password); 
-			    
-			    // click login btn
-		    	loginPage.clickLoginBtn();
-		    	
-		    		
-		    	 ////// Title Verification //////  	
-		    	String title = driver.getTitle();
-		    	
-		    	if(title.equalsIgnoreCase("PickDrop Fleet")) {
-		    		
-		    		System.out.println(title);
-		    	}
-		    	
-		    	Thread.sleep(2000);
-		    	
+		    	driver.findElement(By.xpath("//button[text() = 'OK']")).click();
+		   
+		    	loginPage.clearField();
+		   
+		    } else if(loginPage.successLogin() != null) {
+	            
+		    	 System.out.println("Login Success");
+	        }
+		}
+		
+		    }
+    }
 		    	    	
-		    } catch (Exception e) {
-		    	
-		    	e.getStackTrace();
-		    	
-		    	System.out.println(e.getMessage());
-		    	
-		    }  
-	   }
-	
+		/*
+		 * } catch (Exception e) {
+		 * 
+		 * e.getStackTrace();
+		 * 
+		 * System.out.println(e.getMessage());
+		 * 
+		 * }		 */
+
+		    
 	    @Test(priority = 2)
 	    public void createKitchenByAdmin() {
 	    	
@@ -259,7 +273,20 @@ public class Admintest {
 				 
 				 firstName, lastName, userCode, mobileNumber, "25091999", "imran100@gmail.com", "123456789012", "1234567890", education, address, country, state, city, postalCode);
 		   
-		   System.out.println("New user created");
+		   if(userPage.isErrorMessageDisplayed() == true) {
+			   
+			   String errorMessage = userPage.getErrorMessage();
+			   
+			   System.out.println("The Error Message is : " +errorMessage);
+			   
+			   driver.findElement(By.xpath("//button[text() = 'OK']")).click();
+			   
+			   userPage.clearField();
+			   
+		   } else {
+			   
+			   
+		   }
 	   }
 	    			   		
 	   /////// Url verify ///////
@@ -277,13 +304,14 @@ public class Admintest {
 	    		
 	    	} catch (Exception e) {
 	    		
+	    		e.getStackTrace();
+	    		
 	    		System.out.println(e.getMessage());
-	    	
 	    	} 
 	    	 	 
 	     }
 	    
-	    
+	    @Test(priority = 10)
 	    public void testImport() {
 	    	
 	    	try {

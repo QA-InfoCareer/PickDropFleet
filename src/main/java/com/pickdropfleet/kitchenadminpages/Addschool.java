@@ -24,98 +24,67 @@ public class Addschool {
 	   @FindBy(xpath = "//button[@id = 'menu_slider']")
 	   WebElement dashboardIcon; // it selects dashsboars icon
 	   
-	   @FindBy(xpath = "//h6[text() = 'School']")
-	   WebElement ClickSchool; // it selects School on dashboard
+	   By ClickSchool = By.xpath("//h6[text() = 'School']"); // it selects School on dashboard
 	   
-	   @FindBy(xpath = "//a[normalize-space()='+ Add School']")
-	   WebElement AddSchool; // it clicks add school btn
+	   By AddSchool = By.xpath("//a[normalize-space()='+ Add School']"); // it clicks add school btn
 	   
-	   @FindBy(id = "school_Name")
-	   WebElement SchoolName; // enter school name
+	   By SchoolName = By.id("school_Name"); // enter school name
 	
-	   @FindBy(id = "school_Code")
-	   WebElement SchoolCode; // enter school code
+	   By SchoolCode = By.id("school_Code"); // enter school code
 	
-	   @FindBy(id = "principal_Name")
-	   WebElement PrincipalName; // enter principal name
+	   By PrincipalName = By.id("principal_Name"); // enter principal name
 	   
-	   @FindBy(id = "having_Vessel")
-	   WebElement HavingSpareVessel; // it clicks Having spare vessel
+	   By HavingSpareVessel = By.id("having_Vessel"); // it clicks Having spare vessel
 	
-	   @FindBy(xpath = "//li[text() = 'Yes']")
-	   WebElement HavingSpareVesselValue; // it selects Having spare vessel value
+	   By HavingSpareVesselValue = By.xpath("//li[text() = 'Yes']"); // it selects Having spare vessel value
 	   
-	   @FindBy(id = "distance_Start")
-	   WebElement DistancefromStartLocation; // enter Distance from start location
+	   By DistancefromStartLocation = By.id("distance_Start"); // enter Distance from start location
 	   
-	   @FindBy(id = "mobile_Phone")
-	   WebElement Mobileno; // enter mobile number
+	   By Mobileno = By.id("mobile_Phone"); // enter mobile number
 	   
-	   @FindBy(id = "land_Line")
-	   WebElement Landlineno; // enter landline number
+	   By Landlineno = By.id("land_Line"); // enter landline number
 	   
-	   @FindBy(id = "school_Type")
-	   WebElement Schooltype; // it clicks school type
+	   By Schooltype = By.id("school_Type"); // it clicks school type
+	  
+	   By Schooltypevalue = By.xpath("//li[text() = 'Government School']"); // it selects schooltype value
 	   
-	   @FindBy(xpath = "//li[text() = 'Government School']")
-	   WebElement Schooltypevalue; // it selects schooltype value
+	   By TotalNoOfStudents = By.id("number_Students"); // enter Total no of students
+	 
+	   By TotalStudentHavingMeals = By.id("number_Meals"); // enter total number of students having meal
+	  
+	   By Email = By.id("email_Address"); // enter email id
 	   
-	   @FindBy(id = "number_Students")
-	   WebElement TotalNoOfStudents; // enter Total no of students
+	   By ContactPerson = By.xpath("//input[@id = 'contact_Person']"); // enter contact person
 	   
-	   @FindBy(id = "number_Meals")
-	   WebElement TotalStudentHavingMeals; // enter total number of students having meal
+	   By BeneficiaryPrimaryStudents = By.id("bene_Primary"); // enter Beneficiary Primary Students
+	 
+	   By BeneficiaryUpperPrimaryStudents = By.id("bene_Upper"); // enter Beneficiary Upper Primary Students
+	 
+	   By BeneficiarySecondaryStudents = By.id("beni_Secondary"); // enter Beneficiary Secondary Students
 	   
-	   @FindBy(id = "email_Address")
-	   WebElement Email; // enter email id
+	   By Locationaddress = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[1]");  // it clicks location icon
+	 
+	   By Searchplaces = By.xpath("//input[@placeholder = 'Search Places ...']"); // enter address in search bar
 	   
-	   @FindBy(xpath = "//input[@id = 'contact_Person']")
-	   WebElement ContactPerson; // enter contact person
+	   By Saveaddress = By.xpath("//button[@class = 'save-modal']"); // it saves address
 	   
-	   @FindBy(id = "bene_Primary")
-	   WebElement BeneficiaryPrimaryStudents; // enter Beneficiary Primary Students
+	   By Country = By.xpath("//input[@id = 'scl_Country']"); // enter country
 	   
-	   @FindBy(id = "bene_Upper")
-	   WebElement BeneficiaryUpperPrimaryStudents; // enter Beneficiary Upper Primary Students
+	   By State = By.xpath("//input[@id = 'scl_State']"); // enter state
 	   
-	   @FindBy(id = "beni_Secondary")
-	   WebElement BeneficiarySecondaryStudents; // enter Beneficiary Secondary Students
+	   By City = By.xpath("//input[@id = 'scl_City']"); // enter city
+	  
+	   By PostalCode = By.xpath("//input[@id = ' postal_Code']"); // enter Postal code
+	  
+	   By Latitude = By.xpath("//input[@id = 'scl_Latitude']"); // enter latitude
 	   
-	   @FindBy(xpath = "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[1]")
-	   WebElement Locationaddress;  // it clicks location icon
+	   By Longitude = By.xpath("//input[@id = 'scl_Longitude']"); // enter longitude
 	   
-	   @FindBy(xpath = "//input[@placeholder = 'Search Places ...']")
-	   WebElement Searchplaces; // enter address in search bar
+	   By JoinedAkshayaPatraOn = By.xpath("//input[@id = 'joined_Tap']"); // enter Date Joined AkshayaPatra On
 	   
-	   @FindBy(xpath = "//button[@class = 'save-modal']")
-	   WebElement Saveaddress;  // it saves address
+	   By Savebtn = By.xpath("//button[text() = 'Save']");
 	   
-	   @FindBy(xpath = "//input[@id = 'scl_Country']")
-	   WebElement Country; // enter country
-	   
-	   @FindBy(xpath = "//input[@id = 'scl_State']")
-	   WebElement State; // enter state
-	   
-	   @FindBy(xpath = "//input[@id = 'scl_City']")
-	   WebElement City; // enter city
-	   
-	   @FindBy(xpath = "//input[@id = ' postal_Code']")
-	   WebElement PostalCode; // enter Postal code
-	   
-	   @FindBy(xpath = "//input[@id = 'scl_Latitude']")
-	   WebElement Latitude; // enter latitude
-	   
-	   @FindBy(xpath = "//input[@id = 'scl_Longitude']")
-	   WebElement Longitude; // enter longitude
-	   
-	   @FindBy(xpath = "//input[@id = 'joined_Tap']")
-	   WebElement JoinedAkshayaPatraOn; // enter Date Joined AkshayaPatra On
-	   
-	   @FindBy(xpath = "//button[text() = 'Save']")
-	   WebElement Savebtn;
-	   
-	   @FindBy(xpath = "//button[text() = 'OK']")
-	   WebElement Okbtn;
+	   By Okbtn = By.xpath("//button[text() = 'OK']");
 	 
 	   public Addschool(WebDriver driver) {
 	        
@@ -176,118 +145,70 @@ public class Addschool {
 		  
 		     Utils utils = new Utils(driver);
 	
-		     utils.clickElementWithWait(driver, ClickSchool);
+		     utils.clickVisibilityOfElementLocated(driver, ClickSchool, 10);
 		  
-		     utils.clickElementWithWait(driver, AddSchool);
+		     utils.clickVisibilityOfElementLocated(driver, AddSchool, 10);
+		   
+		  utils.sendKeysWithExplicitWait(driver, SchoolName, schoolName, 10);
+		  
+		  utils.sendKeysWithExplicitWait(driver, SchoolCode, schoolCode, 10);
 		 
-		     utils.setImplicitWait(10);
-		   
-		   SchoolName.sendKeys(schoolName);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   SchoolCode.sendKeys(schoolCode);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   PrincipalName.sendKeys(principalName);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   utils.clickElementWithWait(driver, HavingSpareVessel);
-		   
-		   utils.clickElementWithWait(driver, HavingSpareVesselValue);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   DistancefromStartLocation.sendKeys(distanceFromStartLocation);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   Mobileno.sendKeys(mobileNum); // auto generate
-		   
-		   utils.setImplicitWait(10);
-		   
-		   Landlineno.sendKeys(lanlineNum); // auto generate
-		   
-		   utils.setImplicitWait(10);
-		   
-		   utils.clickElementWithWait(driver, Schooltype);
+		  utils.sendKeysWithExplicitWait(driver, PrincipalName, principalName, 10);
+		 
+		  utils.clickVisibilityOfElementLocated(driver, HavingSpareVessel, 10);
+		  
+		  utils.clickVisibilityOfElementLocated(driver, HavingSpareVesselValue, 10);
+		  
+		  utils.sendKeysWithExplicitWait(driver, DistancefromStartLocation, distanceFromStartLocation, 10);
+		  
+		  utils.sendKeysWithExplicitWait(driver, Mobileno, mobileNum, 10); // auto generate
+		 
+		  utils.sendKeysWithExplicitWait(driver, Landlineno, lanlineNum, 10); // auto generate
+		 
+		  utils.clickVisibilityOfElementLocated(driver, Schooltype, 10);
 		   
     List<WebElement> schoolTypeValue = driver.findElements(By.tagName("li"));
     
       if(schoolTypeValue.size() > 0) {
     	  
-    	  schoolTypeValue.get(2).click();  // it selects schhol type value
+    	  schoolTypeValue.get(2).click();  // it selects school type value
       }
 		
-		   utils.setImplicitWait(10);
+		 utils.sendKeysWithExplicitWait(driver, TotalNoOfStudents, totalNoOfStudents, 10);
 		   
-		   TotalNoOfStudents.sendKeys(totalNoOfStudents);
+		 utils.sendKeysWithExplicitWait(driver, TotalStudentHavingMeals, totalStudentHavingMeals, 10);
 		   
-		   utils.setImplicitWait(10);
+		 utils.sendKeysWithExplicitWait(driver, Email, randomEmail, 10);
+		 
+		 utils.sendKeysWithExplicitWait(driver, ContactPerson, contactPerson, 10);
 		   
-		   TotalStudentHavingMeals.sendKeys(totalStudentHavingMeals);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   Email.sendKeys(randomEmail); //auto generate
-		   
-		   utils.setImplicitWait(10);
-		   
-		   ContactPerson.sendKeys(contactPerson);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   BeneficiaryPrimaryStudents.sendKeys(beneficiaryPrimaryStudets);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   BeneficiaryUpperPrimaryStudents.sendKeys(beneficiaryUpperPrimaryStudents);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   BeneficiarySecondaryStudents.sendKeys(beneficiarySecondaryStudnets);
+		 utils.sendKeysWithExplicitWait(driver, BeneficiaryPrimaryStudents, beneficiaryPrimaryStudets, 10);
+		 
+		 utils.sendKeysWithExplicitWait(driver, BeneficiaryUpperPrimaryStudents, beneficiaryUpperPrimaryStudents, 10);
+		  
+		 utils.sendKeysWithExplicitWait(driver, BeneficiarySecondaryStudents, beneficiarySecondaryStudnets, 10);
+		 
+		 utils.clickVisibilityOfElementLocated(driver, Locationaddress, 10);
+		  
+		 utils.sendKeysWithExplicitWait(driver, Searchplaces, searchPlace, 10);
+		 
+		 utils.clickVisibilityOfElementLocated(driver, Saveaddress, 10);
+		 
+		 utils.sendKeysWithExplicitWait(driver, Country, country, 10);  
+		 
+		 utils.sendKeysWithExplicitWait(driver, State, state, 10);
+		
+		 utils.sendKeysWithExplicitWait(driver, City, city, 10);
 		   
 		   utils.setImplicitWait(10);
 		   
-		   utils.clickElementWithWait(driver, Locationaddress);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   Searchplaces.sendKeys(searchPlace);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   utils.clickElementWithWait(driver, Saveaddress);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   Country.sendKeys(country);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   State.sendKeys(state);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   City.sendKeys(city);
-		   
-		   utils.setImplicitWait(10);
-		   
-		   PostalCode.sendKeys(postalCode);
-		   
-		   utils.setImplicitWait(10);
-
-	       Latitude.sendKeys(latitude);
-	       
-	       utils.setImplicitWait(10);
-	       
-	       Longitude.sendKeys(longitude);
-	       
-	       utils.setImplicitWait(10);
-	       
-	       JoinedAkshayaPatraOn.sendKeys(akshayapatraJoinedOn);
+		 utils.sendKeysWithExplicitWait(driver, PostalCode, postalCode, 10);
+		
+	     utils.sendKeysWithExplicitWait(driver, Latitude, latitude, 10);
+	    
+	     utils.sendKeysWithExplicitWait(driver, Longitude, longitude, 10);
+	     
+	     utils.sendKeysWithExplicitWait(driver, JoinedAkshayaPatraOn, akshayapatraJoinedOn, 10);
 	       
 	       utils.setImplicitWait(10);
 	       
@@ -295,13 +216,13 @@ public class Addschool {
 	      
 	       utils.setImplicitWait(10);
 	       
-	       utils.clickElementWithWait(driver, Savebtn);
+	       utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
 	       
 	       screenshot.takeScreenshot();
 	       
 	       utils.setImplicitWait(10);
 	    
-	       utils.clickElementWithWait(driver, Okbtn);
+	       utils.clickVisibilityOfElementLocated(driver, Okbtn, 10);
 	       
 	       utils.setImplicitWait(1000);
 		

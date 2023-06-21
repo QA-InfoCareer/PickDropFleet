@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,58 +29,45 @@ public class Foodmenu {
 	WebElement Dashboardicon;
 
 	// clicks food menu on menu slider
-	@FindBy(xpath = "//h6[normalize-space() = 'Food Menu']")
-	WebElement Foodmenu;
+	By Foodmenu = By.xpath("//h6[normalize-space() = 'Food Menu']");
 	
 	// create new food menu
-	@FindBy(xpath = "//a[text() = '+ New Menu']")
-	WebElement Newmenu;
+	By Newmenu = By.xpath("//a[text() = '+ New Menu']");
 	
 	// enter menu date
-	@FindBy(id = "m_Date")
-	WebElement Menudate;
+	By Menudate = By.id("m_Date");
 	
 	// enter Menu breakfast
-	@FindBy(id = "m_Breakfast")
-	WebElement MenuBreakfast;
+	By MenuBreakfast = By.id("m_Breakfast");
 	
 	// enter Menu Lunch
-	@FindBy(id = "m_Lunch")
-	WebElement MenuLunch;
+	By MenuLunch = By.id("m_Lunch");
 	
 	// save food menu
-	@FindBy(xpath = "//button[text() = 'Save']")
-	WebElement Savebtn;
+	By Savebtn = By.xpath("//button[text() = 'Save']");
 	
 	// Ok btn
-	@FindBy(xpath = "//button[text() = 'OK']")
-    WebElement Okbtn;
+    By Okbtn = By.xpath("//button[text() = 'OK']");
 	
-	@FindBy(xpath = "//button[@id='pagination-last-page']//*[name()='svg']")
-	WebElement Pagination;
+	By Pagination = By.xpath("//button[@id='pagination-last-page']//*[name()='svg']");
 	
 	@FindBy(xpath = "//select[@aria-label='Rows per page:']")
 	WebElement rows;
     
     // View btn
-	@FindBy(xpath = "//div[@id='row-23']//button[@type='button'][normalize-space()='View']")
-    WebElement View;
+    By View = By.xpath("(//button[text() = ' View '])[55]"); // it is your created food menu
 	
     // Change btn
-	@FindBy(xpath = "//div[@id='row-24']//button[contains(text(),'Change')]")
-    WebElement Change;
+    By Change = By.xpath("(//button[text()='Change'])[38]"); // it is your created school name
     
     // It clicks + to increase breakfast small
-	@FindBy(xpath = "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[26]")
-    WebElement Smallplus;
+    By Smallplus = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium incQtyCls css-vubbuv'])[1]");
     
     // It clicks + to increase breakfast full
-	@FindBy(xpath = "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[36]")
-    WebElement Largeplus;
+    By Largeplus = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium incQtyCls css-vubbuv'])[3]");
     
     // Save btn
-	@FindBy(xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1j2ak2r'][normalize-space() = 'Save']")
-    WebElement Savebtn1;
+    By Savebtn1 = By.xpath("(//button[text() = 'Save'])[2]");
     
 	public Foodmenu(WebDriver driver) {
         
@@ -93,22 +81,20 @@ public class Foodmenu {
 		  Screenshot screenshot = new Screenshot(driver);
 
 		  Utils utils = new Utils(driver);
-		  
-		  Actions actions = new Actions(driver);
 		
-		  actions.click(Foodmenu).build().perform();
+		 utils.clickVisibilityOfElementLocated(driver, Foodmenu, 10);
 		  
-		  actions.click(Newmenu).build().perform();
+		 utils.clickVisibilityOfElementLocated(driver, Newmenu, 10);
+			
+		 utils.sendKeysWithExplicitWait(driver, Menudate, menuDate, 10);
+		  
+		 utils.sendKeysWithExplicitWait(driver, MenuBreakfast, menuBreakFast, 10);
 		
-		  Menudate.sendKeys(menuDate);
+		 utils.sendKeysWithExplicitWait(driver, MenuLunch, menuLunch, 10);
 		  
-		  utils.setImplicitWait(10);
+		  screenshot.takeScreenshot();
 		  
-		  MenuBreakfast.sendKeys(menuBreakFast);
-		  
-		  utils.setImplicitWait(10);
-		  
-		  MenuLunch.sendKeys(menuLunch);
+		  utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
 		  
 		  utils.setImplicitWait(10);
 		  
@@ -116,58 +102,35 @@ public class Foodmenu {
 		  
 		  utils.setImplicitWait(10);
 		  
-		  utils.clickElementWithWait(driver, Savebtn);
-		  
-		  utils.setImplicitWait(10);
-		  
-		  screenshot.takeScreenshot();
-		  
-		  utils.setImplicitWait(10);
-		  
-		  utils.clickElementWithWait(driver, Okbtn);
+		  utils.clickVisibilityOfElementLocated(driver, Okbtn, 10);
 		  
 		  utils.setImplicitWait(1000);
+		 
 		  
 		///////// Add Food is of what type /////////
 		  
-		  utils.clickElementWithWait(driver, rows);
-		  
-		Select select = new Select(rows);
-		
-		select.selectByVisibleText("ALL");
-		 
-		  utils.clickElementWithWait(driver, View);
-		  
-		  utils.clickElementWithWait(driver, rows);
-		  
-		Select select2 = new Select(rows);
-		
-		select2.selectByVisibleText("ALL");
-		 
-		  utils.clickElementWithWait(driver, Change);
-		  
-	List<WebElement> pathTag = driver.findElements(By.tagName("path"));
-	
-	  if(pathTag.size() > 0) {
-		
-		 Actions actions2 = new Actions(driver);
-		 
-		 actions2.moveToElement(Smallplus).click().build().perform();
-		 
-		 actions2.moveToElement(Largeplus).click().build().perform();
-		  
-	  }
-		  
-		  utils.clickElementWithWait(driver, Smallplus);
-		  
-		  utils.clickElementWithWait(driver, Largeplus);
-		  
-		  Thread.sleep(1000);
-		  
-		  utils.clickElementWithWait(driver, Savebtn1);
-		  
-		  Thread.sleep(1000);
-		
+      utils.clickElementWithWait(driver, rows);
+       
+       Select select = new Select(rows);
+       
+       select.selectByVisibleText("ALL");
+       
+       utils.clickVisibilityOfElementLocated(driver, View, 10);
+       
+      utils.clickElementWithWait(driver, rows);
+      
+       Select select2 = new Select(rows);
+       
+       select2.selectByVisibleText("ALL");
+       
+        utils.clickVisibilityOfElementLocated(driver, Change, 10);
+        
+        utils.clickVisibilityOfElementLocated(driver, Smallplus, 10);
+        
+        utils.clickVisibilityOfElementLocated(driver, Largeplus, 10);
+        
+        utils.clickVisibilityOfElementLocated(driver, Savebtn1, 10);
+       
 		  return "New Food Menu Added";
 	  }
 	

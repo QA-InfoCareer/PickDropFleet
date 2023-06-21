@@ -1,20 +1,14 @@
 package com.pickdropfleet.kitchenadminpages;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pickdropfleet.utils.Utils;
 import com.pickdropflett.ss.Screenshot;
@@ -26,77 +20,53 @@ public class Addvehicle {
 	@FindBy(xpath = "//button[@id = 'menu_slider']")
 	WebElement dashboardIcon; // it selects dashsboars icon
 
-	@FindBy(xpath = "//h6[text() = 'Vehicle']")
-	WebElement Vehicle; // it clicks vehicle on dashboard
+	By Vehicle = By.xpath("//h6[text() = 'Vehicle']"); // it clicks vehicle on dashboard
 	
-	@FindBy(xpath = "//a[text() = '+ Add Vehicle']")
-	WebElement Addvehicle; // it clicks Vehicle btn 
+	By Addvehicle = By.xpath("//a[text() = '+ Add Vehicle']"); // it clicks Vehicle btn 
 	
-	@FindBy(id = "vehicle_Make")
-	WebElement Vehiclemake; // it clicks vehicke make 
+	By Vehiclemake = By.id("vehicle_Make"); // it clicks vehicke make 
 	
-	@FindBy(xpath = "//li[text() = 'Ashok Leyland']")
-	WebElement Vehiclemakevalue; // it selects vehicle make value
+	By Vehiclemakevalue = By.xpath("//li[text() = 'Ashok Leyland']"); // it selects vehicle make value
 	
-	@FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > main:nth-child(3) > div:nth-child(3) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)")
-	WebElement Vehiclemodel; // it clicks Vehiclemodel
+	By Vehiclemodel = By.cssSelector("body > div:nth-child(2) > div:nth-child(1) > main:nth-child(3) > div:nth-child(3) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)"); // it clicks Vehiclemodel
 	
-	@FindBy(xpath = "//li[text() = 'Ashok Leyland BADA DOST']")
-	WebElement Vehiclemodelvalue; // it selects Vehiclemodel value
+	By Vehiclemodelvalue = By.xpath("//li[text() = 'Ashok Leyland BADA DOST']"); // it selects Vehiclemodel value
 	
-	@FindBy(id = "vehicle_makeYear")
-	WebElement VehicleMakeyear; // enter vehicle year
+	By VehicleMakeyear = By.id("vehicle_makeYear"); // enter vehicle year
 	
-	@FindBy(id = "vehicle_Type")
-	WebElement Vehicletype; // enter vehicletype
+	By Vehicletype = By.id("vehicle_Type"); // enter vehicletype
 	
-	@FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > main:nth-child(3) > div:nth-child(3) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)")
-	WebElement VehicleFueltype; // it clicks Vehicle Fuel type
+	By VehicleFueltype = By.cssSelector("body > div:nth-child(2) > div:nth-child(1) > main:nth-child(3) > div:nth-child(3) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)"); // it clicks Vehicle Fuel type
 	
-	@FindBy(xpath = "//li[text() = 'Diesel']")
-	WebElement VehicleFuetypevalue; // it selects Vehicle Fuel type value
+	By VehicleFuetypevalue = By.xpath("//li[text() = 'Diesel']"); // it selects Vehicle Fuel type value
 	
-	@FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > main:nth-child(3) > div:nth-child(3) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > em:nth-child(1)")
-	WebElement VehicleOwnership;  // it clicks VehicleOwnership
+	By VehicleOwnership = By.cssSelector("body > div:nth-child(2) > div:nth-child(1) > main:nth-child(3) > div:nth-child(3) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > em:nth-child(1)");  // it clicks VehicleOwnership
 	
-	@FindBy(xpath = "//li[text() = 'Hired']")
-	WebElement VehicleOwnershipvalue; // it selects VehicleOwnership value
+	By VehicleOwnershipvalue = By.xpath("//li[text() = 'Hired']"); // it selects VehicleOwnership value
 	
-	@FindBy(xpath = "//input[@id = 'engine_Size']")
-	WebElement Enginesize; // enter engine size
+	By Enginesize = By.xpath("//input[@id = 'engine_Size']"); // enter engine size
 	
-	@FindBy(xpath = "//input[@id = 'drive_Train']")
-	WebElement Drivetrain; // enter drive train
-	 
-	@FindBy(xpath = "//input[@id = 'fuel_Capacity']")
-	WebElement Fuelcapacity; // enter fuel capacity
+	By Drivetrain = By.xpath("//input[@id = 'drive_Train']"); // enter drive train
 	
-	@FindBy(id = "Vehicle_number")
-	WebElement Vehiclenumber; // enter vehicle number
+	By Fuelcapacity = By.xpath("//input[@id = 'fuel_Capacity']"); // enter fuel capacity
 	
-	@FindBy(xpath = "//input[@id= 'registration_Year']")
-	WebElement VehicleRegistrationyear; // enter vehicle registration year
+	By Vehiclenumber = By.id("Vehicle_number"); // enter vehicle number
 	
-	@FindBy(xpath = "//input[@id = 'joined_On']")
-	WebElement JoinedAkshayapatra; // enter joined akshayapatra date joine don
+	By VehicleRegistrationyear = By.xpath("//input[@id= 'registration_Year']"); // enter vehicle registration year
 	
-	@FindBy(xpath = "//input[@name = 'vehiclecode']")
-	WebElement Vehiclecode; // enter vehicle code
+	By JoinedAkshayapatra = By.xpath("//input[@id = 'joined_On']"); // enter joined akshayapatra date joine don
 	
-	@FindBy(xpath = "//div[@id='road_Side']")
-	WebElement RoadsideAssistance;  // it clicks RoadsideAssistance
+	By Vehiclecode = By.xpath("//input[@name = 'vehiclecode']"); // enter vehicle code
 	
-	@FindBy(xpath = "//li[text() = 'Yes']")
-	WebElement RoadsideAssistancevalue; // it selects RoadsideAssistance value
+	By RoadsideAssistance = By.xpath("//div[@id='road_Side']");  // it clicks RoadsideAssistance
 	
-	@FindBy(xpath = "//input[@name = 'Vehiclecolor']")
-	WebElement Vehiclecolor; // enter Vehiclecolor 
+	By RoadsideAssistancevalue = By.xpath("//li[text() = 'Yes']"); // it selects RoadsideAssistance value
 	
-	@FindBy(xpath = "//button[contains(text(),'Save')]")
-	WebElement Savebtn;
+	By Vehiclecolor = By.xpath("//input[@name = 'Vehiclecolor']"); // enter Vehiclecolor 
 	
-	@FindBy(xpath = "//button[text() = 'OK']")
-	WebElement Okbtn;
+	By Savebtn = By.xpath("//button[contains(text(),'Save')]");
+
+	By Okbtn = By.xpath("//button[text() = 'OK']");
 	
 	public Addvehicle(WebDriver driver) {
         
@@ -117,71 +87,59 @@ public class Addvehicle {
 		
 		Utils utils = new Utils(driver);
 
-		utils.clickElementWithWait(driver, Vehicle);
+		utils.clickVisibilityOfElementLocated(driver, Vehicle, 10);
 		
-		utils.clickElementWithWait(driver, Addvehicle);
+		utils.clickVisibilityOfElementLocated(driver, Addvehicle, 10);
 		
-		utils.clickElementWithWait(driver, Vehiclemake);
+		utils.clickVisibilityOfElementLocated(driver, Vehiclemake, 10);
 		
-	    utils.clickElementWithWait(driver, Vehiclemakevalue);
+	 List<WebElement> vehicleMakeValue = driver.findElements(By.tagName("li"));
+	 
+	  if(vehicleMakeValue.size() > 0) {
+		  
+		  vehicleMakeValue.get(3).click();  // it selects vehicle make value
+	  }
 		
-		utils.clickElementWithWait(driver, Vehiclemodel);
+		utils.clickVisibilityOfElementLocated(driver, Vehiclemodel, 10);
 		
-	    utils.clickElementWithWait(driver, Vehiclemodelvalue);
+	  List<WebElement> vehicleModelValue = driver.findElements(By.tagName("li"));
+	  
+	    if(vehicleModelValue.size() > 0) {
+	    	
+	    	vehicleModelValue.get(1).click();
+	    }
 		
-		VehicleMakeyear.sendKeys(vehicleMakeYear);
+		utils.sendKeysWithExplicitWait(driver, VehicleMakeyear, vehicleMakeYear, 10);
 		
-		utils.setImplicitWait(10);
-		
-		Vehicletype.sendKeys(vehicleType);
-		
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, Vehicletype, vehicleType, 10);
 
-		utils.clickElementWithWait(driver, VehicleFueltype);
+		utils.clickVisibilityOfElementLocated(driver, VehicleFueltype, 10);
 		
-		utils.clickElementWithWait(driver, VehicleFuetypevalue);
+		utils.clickVisibilityOfElementLocated(driver, VehicleFuetypevalue, 10);
 		
-		utils.clickElementWithWait(driver, VehicleOwnership);
+		utils.clickVisibilityOfElementLocated(driver, VehicleOwnership, 10);
 		
-		utils.clickElementWithWait(driver, VehicleOwnershipvalue);
+		utils.clickVisibilityOfElementLocated(driver, VehicleOwnershipvalue, 10);
 		
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, Enginesize, engineSize, 10);
 		
-		Enginesize.sendKeys(engineSize);
+		utils.sendKeysWithExplicitWait(driver, Drivetrain, driveTrain, 10);
 		
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, Fuelcapacity, fuelCapacity, 10);
 		
-		Drivetrain.sendKeys(driveTrain);
+		utils.sendKeysWithExplicitWait(driver, Vehiclenumber, vehicleNumber, 10);
 		
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, VehicleRegistrationyear, vehicleRegistrationYear, 10);
 		
-		Fuelcapacity.sendKeys(fuelCapacity);
+		utils.sendKeysWithExplicitWait(driver, JoinedAkshayapatra, joinedAkshayapatra, 10);
 		
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, Vehiclecode, vehicleCode, 10);
 		
-		Vehiclenumber.sendKeys(vehicleNumber);
+		utils.clickVisibilityOfElementLocated(driver, RoadsideAssistance, 10);
 		
-		utils.setImplicitWait(10);
+		utils.clickVisibilityOfElementLocated(driver, RoadsideAssistancevalue, 10);
 		
-		VehicleRegistrationyear.sendKeys(vehicleRegistrationYear);
-		
-		utils.setImplicitWait(10);
-		
-		JoinedAkshayapatra.sendKeys(joinedAkshayapatra);
-		
-		utils.setImplicitWait(10);
-		
-		Vehiclecode.sendKeys(vehicleCode);
-		
-		utils.setImplicitWait(10);
-		
-		utils.clickElementWithWait(driver, RoadsideAssistance);
-		
-		utils.clickElementWithWait(driver, RoadsideAssistancevalue);
-		
-		utils.setImplicitWait(10);
-		
-		Vehiclecolor.sendKeys(vehicleColor);
+		utils.sendKeysWithExplicitWait(driver, Vehiclecolor, vehicleColor, 10);
 		
 		utils.setImplicitWait(10);
 		
@@ -189,7 +147,7 @@ public class Addvehicle {
 		
 		utils.setImplicitWait(10);
 		
-		utils.clickElementWithWait(driver, Savebtn);
+		utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
 		
 		utils.setImplicitWait(10);
 		
@@ -197,7 +155,7 @@ public class Addvehicle {
 		
 		utils.setImplicitWait(10);
 		
-		utils.clickElementWithWait(driver, Okbtn);
+		utils.clickVisibilityOfElementLocated(driver, Okbtn, 10);
 		
 		utils.setImplicitWait(1000);
 		

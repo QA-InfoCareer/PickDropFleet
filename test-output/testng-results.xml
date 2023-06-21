@@ -1,25 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="13" total="15" passed="2" failed="0" skipped="0">
+<testng-results ignored="7" total="10" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-14T17:18:13 IST" name="Suite" finished-at="2023-06-14T17:18:33 IST" duration-ms="20470">
+  <suite started-at="2023-06-21T14:34:46 IST" name="MyTestSuite" finished-at="2023-06-21T14:38:54 IST" duration-ms="247422">
     <groups>
     </groups>
-    <test started-at="2023-06-14T17:18:13 IST" name="KitchdenAdminTest" finished-at="2023-06-14T17:18:33 IST" duration-ms="20470">
-      <class name="com.pickdropfleet.admin.test.Kitchenadmintest">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.pickdropfleet.admin.test.Kitchenadmintest@2f62ea70]" started-at="2023-06-14T17:18:13 IST" name="browserLaunch" finished-at="2023-06-14T17:18:20 IST" duration-ms="6550" status="PASS">
+    <test started-at="2023-06-21T14:34:46 IST" name="AdminTest" finished-at="2023-06-21T14:38:54 IST" duration-ms="247422">
+      <class name="com.pickdropfleet.admin.test.Admintest">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:com.pickdropfleet.admin.test.Admintest@7a1234bf]" started-at="2023-06-21T14:34:46 IST" name="browserLaunch" finished-at="2023-06-21T14:34:53 IST" duration-ms="6397" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="kitchenAdminLogin()[pri:0, instance:com.pickdropfleet.admin.test.Kitchenadmintest@2f62ea70]" started-at="2023-06-14T17:18:20 IST" name="kitchenAdminLogin" finished-at="2023-06-14T17:18:22 IST" duration-ms="2806" status="PASS">
+        <test-method signature="adminLogin()[pri:1, instance:com.pickdropfleet.admin.test.Admintest@7a1234bf]" started-at="2023-06-21T14:34:53 IST" name="adminLogin" finished-at="2023-06-21T14:35:08 IST" duration-ms="15107" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.className: swal2-html-container (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.134, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50577}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:50577/devtoo..., se:cdpVersion: 114.0.5735.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 376ab270cbe56edf6ba96ede519143dc]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.className: swal2-html-container (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.134, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50577}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:50577/devtoo..., se:cdpVersion: 114.0.5735.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 376ab270cbe56edf6ba96ede519143dc
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+at com.pickdropfleet.utils.Utils.findElementByXPath(Utils.java:298)
+at com.pickdropfleet.adminpages.Loginpage.isErrorMessageDisplayed(Loginpage.java:70)
+at com.pickdropfleet.admin.test.Admintest.adminLogin(Admintest.java:137)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:829)
+at org.testng.TestRunner.run(TestRunner.java:602)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- kitchenAdminLogin -->
-        <test-method signature="testFoodMenu()[pri:9, instance:com.pickdropfleet.admin.test.Kitchenadmintest@2f62ea70]" started-at="2023-06-14T17:18:23 IST" name="testFoodMenu" finished-at="2023-06-14T17:18:33 IST" duration-ms="10917" status="PASS">
+        </test-method> <!-- adminLogin -->
+        <test-method signature="createUserByAdmin()[pri:3, instance:com.pickdropfleet.admin.test.Admintest@7a1234bf]" started-at="2023-06-21T14:35:08 IST" name="createUserByAdmin" finished-at="2023-06-21T14:38:52 IST" duration-ms="224249" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testFoodMenu -->
-      </class> <!-- com.pickdropfleet.admin.test.Kitchenadmintest -->
-    </test> <!-- KitchdenAdminTest -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- createUserByAdmin -->
+        <test-method signature="adminLogout()[pri:9, instance:com.pickdropfleet.admin.test.Admintest@7a1234bf]" started-at="2023-06-21T14:38:52 IST" name="adminLogout" finished-at="2023-06-21T14:38:54 IST" duration-ms="1453" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- adminLogout -->
+      </class> <!-- com.pickdropfleet.admin.test.Admintest -->
+    </test> <!-- AdminTest -->
+  </suite> <!-- MyTestSuite -->
 </testng-results>

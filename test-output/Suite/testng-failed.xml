@@ -6,7 +6,7 @@
       <class name="com.pickdropfleet.admin.test.Kitchenadmintest">
         <methods>
           <include name="browserLaunch"/>
-          <include name="adminLogout"/>
+          <include name="kitchenAdminLogout"/>
         </methods>
       </class> <!-- com.pickdropfleet.admin.test.Kitchenadmintest -->
     </classes>

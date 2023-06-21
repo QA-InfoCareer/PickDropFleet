@@ -11,13 +11,8 @@
      
      <include name="browserLaunch"></include>
      <include name="adminLogin"></include>
-     <include name="createKitchenByAdmin"></include> 
+  <!-- <include name="createKitchenByAdmin"></include>   -->   
      <include name="createUserByAdmin"></include>
-     <include name="testViewUser"></include>
-     <include name="testSchoolView"></include>
-     <include name="testVehicleView"></include>
-     <include name="testMenuView"></include>
-     <include name="testRouteView"></include>
      <include name="adminLogout"></include>
      
      

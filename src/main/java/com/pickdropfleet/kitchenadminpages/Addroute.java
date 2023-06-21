@@ -29,51 +29,42 @@ public class Addroute {
 	WebElement Dashboard;
 	
 	// clicks Route on dashboard
-	@FindBy(xpath = "//h6[text() = 'Route']")
-	WebElement Route;
+	By Route = By.xpath("//h6[text() = 'Route']");
 	
 	// create new route
-	@FindBy(xpath = "//a[text() = '+ Add Route']")
-	WebElement AddRoute;
+	By AddRoute = By.xpath("//a[text() = '+ Add Route']");
 	
 	// enter route name
-	@FindBy(id = "route_Name")
-	WebElement RouteName;
+	By RouteName = By.id("route_Name");
 	
 	// enter route code
-	@FindBy(id = "route_Code")
-	WebElement RouteCode;
+	By RouteCode = By.id("route_Code");
 	
 	// Save btn
-	@FindBy(xpath = "//button[text() = 'Save']")
-	WebElement Savebtn;
+	By Savebtn = By.xpath("//button[text() = 'Save']");
 	
 	// Ok btn
-	@FindBy(xpath = "//button[text() ='OK']")
-	WebElement Okbtn;
+	By Okbtn = By.xpath("//button[text() ='OK']");
 	
 	// it clicks Last page arrow
-	@FindBy(xpath = "//button[@id = 'pagination-last-page']")
-	WebElement LastPagearrow;
+	@FindBy(xpath = "//select[@aria-label = 'Rows per page:']")
+	WebElement rows;
 	
 	// it clicks view btn
-	@FindBy(xpath = "(//button[@type='button'][normalize-space()='View'])[9]")
-	WebElement View;
+	By View = By.xpath("(//button[text() = ' View '])[29]"); // it is your created route
 	
 	// it clicks map school btn
-	@FindBy(xpath = "//a[normalize-space()='+ Map Schools']")
-	WebElement Mapschool;
+	By Mapschool = By.xpath("//a[normalize-space()='+ Map Schools']");
 	
 	// it clicks on check box
-	@FindBy(xpath = "(//div[@role = 'row'] //span[@aria-label = 'select-row-6486d9b060ac2947efe24b4f'])")
-	WebElement NumberOne;
+	By checkSchool = By.xpath("(//div[@class='sc-hLseeU sc-gLDzan efVpVk gNRcrj rdt_TableCell'])[17]"); // it is your created school
 	
-	@FindBy(xpath = "(//select[@id='sequence'])[1]")
-	WebElement Sequence;
+	//it selects sequential order
+	@FindBy(xpath = "(//select[@id='sequence'])[17]")
+	WebElement Sequence; // it is your created school same sequence
 	
 	// it clicks add btn
-	@FindBy(xpath = "//button[text() = 'Add']")
-	WebElement Addbtn;
+	By Addbtn = By.xpath("//button[text() = 'Add']");
 	
 	
 	public Addroute(WebDriver driver) {
@@ -92,23 +83,19 @@ public class Addroute {
 	
   		Utils utils = new  Utils(driver);
   		
-  		utils.clickElementWithWait(driver, Route);
+  		utils.clickVisibilityOfElementLocated(driver, Route, 10);
   		
-  		utils.clickElementWithWait(driver, AddRoute);
+  		utils.clickVisibilityOfElementLocated(driver, AddRoute, 10);
+  
+  		utils.sendKeysWithExplicitWait(driver, RouteName, routeName, 10);
   	
-  		utils.setImplicitWait(10);
-  		
-  		RouteName.sendKeys(routeName);
-  		
-  		utils.setImplicitWait(10);
-  		
-  		RouteCode.sendKeys(routeCode);
+  		utils.sendKeysWithExplicitWait(driver, RouteCode, routeCode, 10);
   		
   		screenshot.takeScreenshot();
   		
   		utils.setImplicitWait(10);
   		
-  		utils.clickElementWithWait(driver, Savebtn);
+  		utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
   		
   		utils.setImplicitWait(10);
   		
@@ -116,37 +103,43 @@ public class Addroute {
   	      
   		utils.setImplicitWait(10);
   		
-  		utils.clickElementWithWait(driver, Okbtn);
+  		utils.clickVisibilityOfElementLocated(driver, Okbtn, 10);
   		
   		utils.setImplicitWait(1000);
   		
-//        utils.clickElementWithWait(driver, View);
-//        
-//        utils.clickElementWithWait(driver, Mapschool);
-//        
-//     List<WebElement> inputTag = driver.findElements(By.tagName("input"));
-//     
-//       if(inputTag.size() > 0) {
-//    	  
-//    	   for(WebElement element : inputTag) {
-//    		   
-//    		   String text = element.getText();
-//    		   
-//    		   System.out.println(text);
-//    	   }
-//       }
-//        
-//        utils.clickElementWithWait(driver, Sequence);
-//        
-//        Select select = new Select(Sequence);
-//        
-//        select.selectByVisibleText("1");
-//        
-//  		utils.clickElementWithWait(driver, Addbtn);
+  		///////////// Map School /////////////
+  		
+  		utils.clickElementWithWait(driver, rows);
+  		
+  		Select select = new Select(rows);
+  		
+  		select.selectByVisibleText("ALL");
+  		
+  		utils.clickVisibilityOfElementLocated(driver, View, 10);
+  		
+  		utils.clickVisibilityOfElementLocated(driver, Mapschool, 10);
+  		
+  		utils.clickElementWithWait(driver, rows);
+  		
+  		Select select2 = new Select(rows);
+  		
+  		select2.selectByVisibleText("ALL");
+  		
+  		utils.clickVisibilityOfElementLocated(driver, checkSchool, 10);
+  		
+  		utils.clickElementWithWait(driver, Sequence);
+  		
+  		Select select3 = new Select(Sequence);
+  		
+  		select3.selectByVisibleText("1");
+  		
+  		utils.clickVisibilityOfElementLocated(driver, Addbtn, 10);
     	  
       } catch(Exception e) {
     	  
-    	  System.out.println(e.getMessage());
+    	 e.getStackTrace();
+    	 
+    	 System.out.println(e.getMessage());
       }
 	
       return "New Route Added";

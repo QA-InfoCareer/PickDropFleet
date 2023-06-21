@@ -16,6 +16,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.google.inject.spi.Element;
+
 public class Utils {
 
 	private static WebDriver driver;
@@ -31,22 +33,6 @@ public class Utils {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public static WebDriver getDriver() {
-        if (driver == null) {
-            // Set the path to the ChromeDriver executable
-            System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
-
-            // Configure ChromeOptions if needed
-            ChromeOptions options = new ChromeOptions();
-            // Add any desired options, such as disabling notifications or setting the window size
-            // options.addArguments("--disable-notifications");
-            // options.addArguments("--window-size=1280,800");
-
-            // Initialize the ChromeDriver with the configured options
-            driver = new ChromeDriver(options);
-        }
-        return driver;
-    }
 
     public static void closeDriver() {
         if (driver != null) {
@@ -180,6 +166,15 @@ public class Utils {
 		element.click();
     }
 	
+	public void clickVisibilityOfElementLocated(WebDriver driver, By locator, int i) {
+		
+		WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_SECONDS));
+		
+		WebElement element2 = driverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		
+		element2.click();
+	}
+	
    public void clickElementWithWait(WebDriver driver, WebElement element) {
         
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_SECONDS));
@@ -286,6 +281,23 @@ public class Utils {
 		    }
 	    }
 
+	 public void sendKeysWithExplicitWait(WebDriver driver, By locator, String text, int timeoutInSeconds) {
+	       
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+	     
+		 WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	     
+		 element.sendKeys(text);
+	    
+	 }
+	 
+	 public WebElement findElementByXPath(String xpath) {
+	       
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_SECONDS));
+		 
+		 return wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(xpath)));
+	    
+	 }
 
 	
 	

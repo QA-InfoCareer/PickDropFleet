@@ -1,0 +1,1 @@
+{"uuid":"2bbbf1bb-f515-4be5-9b63-446c851e8892","name":"AdminTest","children":["edaf1998-a127-40e5-b537-0c33715ac57e"],"befores":[{"name":"browserLaunch","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1687322756208,"stop":1687322762121}],"afters":[],"start":1687322756185,"stop":1687322773830}

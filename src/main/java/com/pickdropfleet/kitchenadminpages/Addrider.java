@@ -4,21 +4,19 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.beust.jcommander.Parameter;
-import com.beust.jcommander.Parameters;
+
 import com.pickdropfleet.utils.Utils;
 import com.pickdropflett.ss.Screenshot;
 
@@ -29,80 +27,55 @@ public class Addrider {
 	@FindBy(xpath = "//button[@id = 'menu_slider']")
 	WebElement dashboardIcon; // it selects dashsboars icon
 
-	@FindBy(xpath = "//h6[text() = 'User']")
-	WebElement clickUser; // it selects user in dashboard
+	By clickUser = By.xpath("//h6[text() = 'User']");
+	
+	By Adduser = By.xpath("//a[text() = '+ Add User']");
 
-	@FindBy(xpath = "//a[text() = '+ Add User']")
-	WebElement Adduser;
+	By imageUpload = By.xpath("//input[@type='file']"); // it uploads image
 
-	@FindBy(xpath = "//input[@type='file']")
-	WebElement imageUpload; // it uploads image
+	By Firstname = By.id("user_FirstName"); // enter firstname
 
-	@FindBy(id = "user_FirstName")
-	WebElement Firstname; // enter firstname
+	By Lastname = By.id("user_LastName"); // enter lastname
 
-	@FindBy(id = "user_LastName")
-	WebElement Lastname; // enter lastname
+	By Usercode = By.id("user_Code"); // enter usercode
 
-	@FindBy(id = "user_Code")
-	WebElement Usercode; // enter usercode
+	By Role = By.cssSelector("div.MuiBox-root.css-hboir5 main.MuiBox-root.css-vognfw:nth-child(3) div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-12nms3t:nth-child(3) div.MuiCardContent-root.css-3ofp2w div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-3.css-1h77wgb:nth-child(2) div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-4.css-11xjpbv:nth-child(4) div.css-l5c1s3 div.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.css-59zgpl:nth-child(2) > div.MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input.css-1tbimj1"); // it clicks role
 
-	@FindBy(css = "div.MuiBox-root.css-hboir5 main.MuiBox-root.css-vognfw:nth-child(3) div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-12nms3t:nth-child(3) div.MuiCardContent-root.css-3ofp2w div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-3.css-1h77wgb:nth-child(2) div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-4.css-11xjpbv:nth-child(4) div.css-l5c1s3 div.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.css-59zgpl:nth-child(2) > div.MuiSelect-select.MuiSelect-outlined.MuiInputBase-input.MuiOutlinedInput-input.css-1tbimj1")
-	WebElement Role; // it clicks role
+	By Rolevalue = By.xpath("//li[text()='Driver']"); // it selects role value
 
-	@FindBy(xpath = "//li[text()='School Admin']")
-	WebElement Rolevalue; // it selects role value
+	By Schoolname = By.cssSelector("div:nth-child(5) div:nth-child(1) div:nth-child(2) div:nth-child(1)");
+	
+	By SchoolNamevalue = By.xpath("//li[text() = 'HBOA School']");
 
-	@FindBy(css = "div:nth-child(5) div:nth-child(1) div:nth-child(2) div:nth-child(1)")
-	WebElement Schoolname;
+	By Mobileno = By.id("user_Mobile"); // enter mobile number
 
-	@FindBy(xpath = "//li[text() = 'HBOA School']")
-	WebElement SchoolNamevalue;
+	By dob = By.id("user_Dob"); // enter dob
 
-	@FindBy(id = "user_Mobile")
-	WebElement Mobileno; // enter mobile number
+	By Gender = By.id("user_Gender"); // it clicks gender
 
-	@FindBy(id = "user_Dob")
-	WebElement dob; // enter dob
+	By Gendervalue = By.xpath("//li[text() = 'Male']"); // it selects gender value
 
-	@FindBy(id = "user_Gender")
-	WebElement Gender; // it clicks gender
+	By Bloodgroup = By.xpath("//em[normalize-space()='Select Blood Group']"); // it clicks bloodgroup
 
-	@FindBy(xpath = "//li[text() = 'Male']")
-	WebElement Gendervalue; // it selects gender value
+	By Bloodgroupvalue = By.xpath("//li[@data-value='5']"); // it selects blood group value
 
-	@FindBy(xpath = "//em[normalize-space()='Select Blood Group']")
-	WebElement Bloodgroup; // it clicks bloodgroup
+	By Maritalstatus = By.id("user_Maritalstatus"); // it clicks marital status
 
-	@FindBy(xpath = "//li[@data-value='5']")
-	WebElement Bloodgroupvalue; // it selects blood group value
+	By Maritalstatusvalue = By.xpath("//li[text() ='Unmarried']");
 
-	@FindBy(id = "user_Maritalstatus")
-	WebElement Maritalstatus; // it clicks marital status
+	By email = By.id("user_Email"); // enter email
 
-	@FindBy(xpath = "//li[text() ='Unmarried']")
-	WebElement Maritalstatusvalue;
+	By Aadharnumber = By.id("user_Aadhar"); // enter aadhar
 
-	@FindBy(id = "user_Email")
-	WebElement email; // enter email
+	By Pannumber = By.id("user_Pan"); // enter pan
 
-	@FindBy(id = "user_Aadhar")
-	WebElement Aadharnumber; // enter aadhar
+	By Education = By.id("user_Education"); // enter education
 
-	@FindBy(id = "user_Pan")
-	WebElement Pannumber; // enter pan
+	By Locationaddress = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[1]"); // it clicks location icon
 
-	@FindBy(id = "user_Education")
-	WebElement Education; // enter education
+	By Searchplaces = By.xpath("//input[@placeholder = 'Search Places ...']"); // enter address
 
-	@FindBy(xpath = "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[1]")
-	WebElement Locationaddress; // it clicks location icon
-
-	@FindBy(xpath = "//input[@placeholder = 'Search Places ...']")
-	WebElement Searchplaces; // enter address
-
-	@FindBy(xpath = "(//button[text() = 'Save'])[2]")
-	WebElement Saveaddress; // it saves address
+	By Saveaddress = By.xpath("(//button[text() = 'Save'])[2]"); // it saves address
 
 	@FindBy(xpath = "//body[1]/div[1]/div[1]/main[1]/div[3]/div[1]/form[1]/div[2]/div[17]/div[1]/div[2]/input[1]")
 	WebElement Country; // enter country
@@ -116,11 +89,9 @@ public class Addrider {
 	@FindBy(id = "user_Postal")
 	WebElement Postalcode;
 
-	@FindBy(xpath = "//button[text() = 'Save']")
-	WebElement Savebtn;
+	By Savebtn = By.xpath("//button[text() = 'Save']");
 
-	@FindBy(xpath = "//button[text() = 'OK']")
-	WebElement Okbtn;
+	By Okbtn = By.xpath("//button[text() = 'OK']");
 
 	@FindBy(xpath = "//div[text() = 'EmailId already exist']")
 	WebElement emailValidation;
@@ -239,92 +210,74 @@ public class Addrider {
 		// Print the generated mobile number
 		System.out.println("Random mobile number: " + mobileNum);
 
-		///////////// Create Rider /////////////
+		///////////// Create Driver /////////////
 
 		Utils utils = new Utils(driver);
 
-		utils.clickElementWithWait(driver, clickUser);
+		utils.clickVisibilityOfElementLocated(driver, clickUser, 10);
 
-		utils.clickElementWithWait(driver, Adduser);
+		utils.clickVisibilityOfElementLocated(driver, Adduser, 10);
 
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, imageUpload, uploadImage, 10);
 
-		imageUpload.sendKeys(uploadImage);
+		utils.sendKeysWithExplicitWait(driver, Firstname, firstName, 10);
 
-		utils.setImplicitWait(10);
+		utils.sendKeysWithExplicitWait(driver, Lastname, lastName, 10);
 
-		Firstname.sendKeys(firstName);
+		utils.sendKeysWithExplicitWait(driver, Usercode, userCode, 10);
 
-		utils.setImplicitWait(10);
+		utils.clickVisibilityOfElementLocated(driver, Role, 10);
 
-		Lastname.sendKeys(lastName);
+		List<WebElement> driverBike = driver.findElements(By.tagName("li"));
 
-		utils.setImplicitWait(10);
+		if (driverBike.size() > 0) {
 
-		Usercode.sendKeys(userCode);
-
-		utils.setImplicitWait(10);
-
-		utils.clickElementWithWait(driver, Role);
-
-		List<WebElement> rider = driver.findElements(By.tagName("li"));
-
-		if (rider.size() > 0) {
-
-			rider.get(2).click(); // it selects rider
+			driverBike.get(2).click(); // it selects Driver
 		}
 
 		utils.setImplicitWait(10);
 
-		Mobileno.sendKeys(mobileNum); // 10 digit auto generate
+		utils.sendKeysWithExplicitWait(driver, Mobileno, mobileNum, 10); // 10 digit auto generate
 
 		utils.setImplicitWait(10);
 
-		dob.sendKeys(Dob);
+		utils.sendKeysWithExplicitWait(driver, dob, Dob, 10);
+
+		utils.clickVisibilityOfElementLocated(driver, Gender, 10);
+
+		utils.clickVisibilityOfElementLocated(driver, Gendervalue, 10);
+
+		utils.clickVisibilityOfElementLocated(driver, Bloodgroup, 10);
+
+		utils.clickVisibilityOfElementLocated(driver, Bloodgroupvalue, 10);
+
+		utils.clickVisibilityOfElementLocated(driver, Maritalstatus, 10);
+
+		utils.clickVisibilityOfElementLocated(driver, Maritalstatusvalue, 10);
+
+		utils.sendKeysWithExplicitWait(driver, email, randomEmail, 10);
+
+		utils.sendKeysWithExplicitWait(driver, Aadharnumber, aadhaarNum, 10); // 12 digits
+
+		utils.sendKeysWithExplicitWait(driver, Pannumber, panNum, 10); // 10 digits
+
+		utils.sendKeysWithExplicitWait(driver, Education, education, 10);
 
 		utils.setImplicitWait(10);
 
-		utils.clickElementWithWait(driver, Gender);
-
-		utils.clickElementWithWait(driver, Gendervalue);
-
-		utils.clickElementWithWait(driver, Bloodgroup);
-
-		utils.clickElementWithWait(driver, Bloodgroupvalue);
-
-		utils.clickElementWithWait(driver, Maritalstatus);
-
-		utils.clickElementWithWait(driver, Maritalstatusvalue);
-
-		email.sendKeys(randomEmail);
+		utils.clickVisibilityOfElementLocated(driver, Locationaddress, 10);
 
 		utils.setImplicitWait(10);
 
-		Aadharnumber.sendKeys(aadhaarNum); // 12 digits
+		utils.sendKeysWithExplicitWait(driver, Searchplaces, searchPlaces, 10);
 
-		utils.setImplicitWait(10);
+		utils.clickVisibilityOfElementLocated(driver, Saveaddress, 10);
 
-		Pannumber.sendKeys(panNum); // 10 digits
-
-		utils.setImplicitWait(10);
-
-		Education.sendKeys(education);
-
-		utils.setImplicitWait(10);
-
-		utils.clickElementWithWait(driver, Locationaddress);
-
-		utils.setImplicitWait(10);
-
-		Searchplaces.sendKeys(searchPlaces);
-
-		utils.clickElementWithWait(driver, Saveaddress);
-
-		String autoFillCity = City.getAttribute("value");
+		String autoFillCity = (City).getAttribute("value");
 		System.out.println("Auto Fill City : " + autoFillCity);
-		String autoFillState = State.getAttribute("value");
-		String autoFillCountry = Country.getAttribute("value");
-		String autoFillPostalCode = Postalcode.getAttribute("value");
+		String autoFillState = (State).getAttribute("value");
+		String autoFillCountry = (Country).getAttribute("value");
+		String autoFillPostalCode = (Postalcode).getAttribute("value");
 
 		if (autoFillCity.equals("Chennai") && autoFillState.equals("Tamilnadu") &&
 
@@ -336,23 +289,29 @@ public class Addrider {
 
 			System.out.println("Auto-filled values are incorrect. Making changes...");
 
-			City.clear();
+			(City).clear();
 			utils.setImplicitWait(600);
-			City.sendKeys(city);
+			(City).sendKeys(city);
 			utils.setImplicitWait(600);
-			State.clear();
+			(State).clear();
 			utils.setImplicitWait(600);
-			State.sendKeys(state);
+			(State).sendKeys(state);
 			utils.setImplicitWait(600);
-			Country.clear();
+			(Country).clear();
 			utils.setImplicitWait(600);
-			Country.sendKeys(country);
+			(Country).sendKeys(country);
 			utils.setImplicitWait(600);
-			Postalcode.clear();
+			(Postalcode).clear();
 			utils.setImplicitWait(600);
-			Postalcode.sendKeys(postalCode);
+			(Postalcode).sendKeys(postalCode);
 
 		}
+		
+		screenshot.takeScreenshot();
+
+		utils.setImplicitWait(10);
+
+		utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
 
 		utils.setImplicitWait(10);
 
@@ -360,15 +319,7 @@ public class Addrider {
 
 		utils.setImplicitWait(10);
 
-		utils.clickElementWithWait(driver, Savebtn);
-
-		utils.setImplicitWait(10);
-
-		screenshot.takeScreenshot();
-
-		utils.setImplicitWait(10);
-
-		utils.clickElementWithWait(driver, Okbtn);
+		utils.clickVisibilityOfElementLocated(driver, Okbtn, 10);
 
 		System.out.println("Rider is created");
 
@@ -453,10 +404,12 @@ public class Addrider {
 	public static String generateRandomEmail() {
 
 		long timestamp = System.currentTimeMillis();
+		
+		System.out.println(timestamp);
 
 		int randomNumber = new Random().nextInt(10000);
 
-		return "rider" + randomNumber + "@gmail.com";
+		return "driver" + randomNumber + "@gmail.com";
 
 	}
 

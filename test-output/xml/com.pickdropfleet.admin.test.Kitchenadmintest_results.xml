@@ -1,22 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="KitchdenAdminTest"
-           tests="2"
-           failures="0"
+           tests="14"
+           failures="1"
            errors="0"
            skipped="0"
-           time="13.723">
+           time="169.617">
     <properties></properties>
 
+            <testcase
+                name="kitchenAdminLogout"
+                time="11.311"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+
+            <failure type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text() = &apos;Logout&apos;]&quot;}
+  (Session info: chrome=114.0.5735.134)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.8.1&apos;, revision: &apos;8ebccac989&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [923906d553f04f09093b99148fd52c03, findElement {using=xpath, value=//span[text() = &apos;Logout&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.134, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:65221}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:65221/devtoo..., se:cdpVersion: 114.0.5735.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 923906d553f04f09093b99148fd52c03">
+                <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text() = 'Logout']"}
+  (Session info: chrome=114.0.5735.134)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [923906d553f04f09093b99148fd52c03, findElement {using=xpath, value=//span[text() = 'Logout']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.134, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\DELL\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:65221}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:65221/devtoo..., se:cdpVersion: 114.0.5735.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 923906d553f04f09093b99148fd52c03
+                java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)com.pickdropfleet.adminpages.Logoutpage.clickUserInfo(Logoutpage.java:42)com.pickdropfleet.admin.test.Kitchenadmintest.kitchenAdminLogout(Kitchenadmintest.java:830)java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)java.base/java.lang.reflect.Method.invoke(Method.java:567)org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)java.base/java.util.ArrayList.forEach(ArrayList.java:1511)org.testng.TestRunner.privateRun(TestRunner.java:829)org.testng.TestRunner.run(TestRunner.java:602)org.testng.SuiteRunner.runTest(SuiteRunner.java:437)org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)org.testng.SuiteRunner.run(SuiteRunner.java:330)org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)org.testng.TestNG.runSuitesLocally(TestNG.java:1176)org.testng.TestNG.runSuites(TestNG.java:1099)org.testng.TestNG.run(TestNG.java:1067)org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </failure>
+    </testcase>
 
 
             <testcase
                 name="kitchenAdminLogin"
-                time="2.806"
+                time="4.448"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="testAddRoute"
+                time="7.231"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="testAddVehicleExpense"
+                time="1.275"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="addSchoolAdminAtUser"
+                time="19.063"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="addSchoolRelationshipManagerAtUser"
+                time="14.545"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="addSchoolTest"
+                time="20.612"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="addFuelSupervisorAtUser"
+                time="11.373"
                 classname="com.pickdropfleet.admin.test.Kitchenadmintest">
             </testcase>
             <testcase
                 name="testFoodMenu"
-                time="10.917"
+                time="10.134"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="addRiderAtUser"
+                time="17.139"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="testDailyRequest"
+                time="15.094"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="addRouteAdminAtUser"
+                time="11.026"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="addVehicleTest"
+                time="11.767"
+                classname="com.pickdropfleet.admin.test.Kitchenadmintest">
+            </testcase>
+            <testcase
+                name="addDistributionManagerAtUser"
+                time="14.599"
                 classname="com.pickdropfleet.admin.test.Kitchenadmintest">
             </testcase>
 </testsuite>
