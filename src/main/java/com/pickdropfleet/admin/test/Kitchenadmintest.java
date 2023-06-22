@@ -39,6 +39,7 @@ import com.pickdropfleet.kitchenadminpages.Addvehicleexpense;
 import com.pickdropfleet.kitchenadminpages.Dailyrequest;
 import com.pickdropfleet.kitchenadminpages.Foodmenu;
 import com.pickdropfleet.kitchenadminpages.Importpage;
+import com.pickdropfleet.utils.Utils;
 
 public class Kitchenadmintest {
 
@@ -101,35 +102,48 @@ public class Kitchenadmintest {
 
 		try {
 
-			Loginpage loginPage = new Loginpage(driver);
+			if(driver.getCurrentUrl() != null) {
+				
+				Loginpage loginPage = new Loginpage(driver);
 
-			Properties properties = new Properties();
-
-			InputStream input = new FileInputStream("config.properties");
-
-			properties.load(input);
-
-			String username = properties.getProperty("userName1");
-
-			System.out.println(username);
-
-			String password = properties.getProperty("pwd1");
-
-			System.out.println(password);
-
-			// enter username and password
-			loginPage.loginAction(username, password);
-
-			////// Title Verification //////
-			String title = driver.getTitle();
-
-			if (title.equalsIgnoreCase("PickDrop Fleet")) {
-
-				System.out.println("Title of the page is : " + title);
+			    FileInputStream inputStream = new FileInputStream("C:\\Users\\DELL\\eclipse-workspace\\PickdropFleet\\src\\main\\resources\\Kitchenadminlogin.xlsx");
+			    			
+			     Workbook workbook = new XSSFWorkbook(inputStream);
+			    			 
+			     Sheet sheet = workbook.getSheet("Sheet1");
+			     
+			  for(int i=1; i<sheet.getLastRowNum(); i++) {
+				  
+				 String userName = sheet.getRow(i).getCell(0).toString();
+				 
+				 System.out.println("Kitchen Admin username : "+ userName);
+				 
+				 String passKey = sheet.getRow(i).getCell(1).toString();
+				 
+				 System.out.println("Kitchen Admin password : "+ passKey);
+				 
+				 loginPage.loginAction(userName, passKey);
+				 
+				 if(loginPage.isErrorMessageDisplayed() != false) {
+					 
+					 String errorMessage = loginPage.getErrorMessage();
+					 
+					 System.out.println("Message is : "+errorMessage);
+					 
+					 driver.findElement(By.xpath("//button[text() = 'OK']")).click();
+					 
+					 loginPage.clearField();
+				 
+				 } else if(loginPage.successLogin() != null) {
+					 
+					 System.out.println("Login success");
+				 }
+				  
+			  }
+				
 			}
-
-			Thread.sleep(2000);
-
+			
+			
 		} catch (Exception e) {
 
 			e.getStackTrace();

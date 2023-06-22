@@ -47,6 +47,7 @@ import com.pickdropfleet.adminpages.Loginpage;
 import com.pickdropfleet.adminpages.Logoutpage;
 import com.pickdropfleet.adminpages.Userpage;
 import com.pickdropfleet.kitchenadminpages.Foodmenu;
+import com.pickdropfleet.utils.Utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -238,6 +239,8 @@ public class Admintest {
 	    		if(driver.getCurrentUrl() != null) {
 	    			
         Userpage userPage = new Userpage(driver);
+        
+        Utils utils = new Utils(driver);
 	    			
 	    FileInputStream inputStream = new FileInputStream("C:\\Users\\DELL\\eclipse-workspace\\PickdropFleet\\src\\main\\resources\\AddUser.xlsx");
 	    			
@@ -277,11 +280,13 @@ public class Admintest {
 			   
 			   String errorMessage = userPage.getErrorMessage();
 			   
-			   System.out.println("The Error Message is : " +errorMessage);
+			   System.out.println("The Message is : " +errorMessage);
 			   
 			   driver.findElement(By.xpath("//button[text() = 'OK']")).click();
 			   
-			   driver.navigate().refresh();
+			   userPage.refreshPage();
+			   
+			    utils.delay(700);
 			   
 		   } else {
 			   

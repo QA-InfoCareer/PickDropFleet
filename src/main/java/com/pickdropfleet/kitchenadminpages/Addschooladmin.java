@@ -195,7 +195,7 @@ public class Addschooladmin {
 
 				value.add(texts);
 
-				if(element.getText().equalsIgnoreCase("Queen Mira International School")) { // school value
+				if(element.getText().equalsIgnoreCase("Queen Meera International School")) { // school value
 
 					element.click();
 

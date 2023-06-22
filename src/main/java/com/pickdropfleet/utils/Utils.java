@@ -298,6 +298,14 @@ public class Utils {
 		 return wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(xpath)));
 	    
 	 }
+	 
+	 public void delay(int milliseconds) {
+	 
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(milliseconds));
+	     
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
+	    
+	 }
 
 	
 	

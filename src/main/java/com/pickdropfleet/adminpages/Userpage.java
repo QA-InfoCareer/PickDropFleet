@@ -208,7 +208,7 @@ public class Userpage {
 	     
 		 utils.clickVisibilityOfElementLocated(driver, kitchenName, 10);
 		 
-		 String valueToClick = "SekarKitchen"; // The value to match and click
+		 String valueToClick = "Beast Kitchen"; // The value to match and click
 		 
 		 utils.clickElementIfPresent(driver, valueToClick);
 		 
@@ -272,6 +272,8 @@ public class Userpage {
 	 public static String generateRandomEmail() {
 	        
 		 long timestamp = System.currentTimeMillis();
+		 
+		 System.out.println(timestamp);
 	     
 		 int randomNumber = new Random().nextInt(10000);
 	     
@@ -329,7 +331,10 @@ public class Userpage {
 	   
 	   }
 
-	 
+	   public void refreshPage() {
+	        
+		   driver.navigate().refresh();
+	    }
 	 
 	 
 	 

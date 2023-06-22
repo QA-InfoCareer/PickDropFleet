@@ -48,13 +48,13 @@ public class Dailyrequest {
 	By Vehiclename = By.id("vehicle_Name");
 	
 	// it selects Vehicle name value
-	By VehicleNamevalue = By.xpath("//li[text() = 'Veh - 79]");
+	By VehicleNamevalue = By.xpath("//li[text() = 'Veh - 80]");
 	
 	// it clicks delivered by
 	By Deliveredby = By.id("delivered_By");
 	
 	// it selects Delivered By value
-	By DeliveredByvalue = By.xpath("//li[text() = 'Sekar Selvam']");
+	By DeliveredByvalue = By.xpath("//li[text() = 'Rajinikanth']");
 	
 	// it clicks Save btn
 	By Savebtn = By.xpath("//button[text() = 'Save']");
@@ -80,7 +80,7 @@ public class Dailyrequest {
 	        // Format the current date using the formatter
 	        String todaysDate1 = currentDate.format(formatter);
 
-	        // Print the formatted date
+	        // Print the formatted current date
 	        System.out.println("Current Date : " + todaysDate1);
 		 
 		Utils utils = new Utils(driver);

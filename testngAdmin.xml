@@ -11,7 +11,7 @@
      
      <include name="browserLaunch"></include>
      <include name="adminLogin"></include>
-  <!-- <include name="createKitchenByAdmin"></include>   -->   
+     <include name="createKitchenByAdmin"></include>    
      <include name="createUserByAdmin"></include>
      <include name="adminLogout"></include>
      
