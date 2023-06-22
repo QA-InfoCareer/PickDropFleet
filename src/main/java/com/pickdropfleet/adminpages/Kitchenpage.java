@@ -207,17 +207,35 @@ public class Kitchenpage {
     	 utils.clickElementWithWait(driver, SaveBtn);
     	 
     	 screenshot.takeScreenshot();
-    	 
-    	 utils.setImplicitWait(10);
-    	
-    	 utils.clickElementWithWait(driver, Okbtn);
-    	 
+    
     	  utils.setImplicitWait(10);
     	 
           return "Success";
       }
       
         
-      
+      public boolean isErrorMessageDisplayed() {
+	        
+			Utils utils = new Utils(driver);
+			
+			String xpath = "swal2-html-container";
+			
+		    return utils.findElementByXPath(xpath).isDisplayed();
+	        
+	    }
+	    
+	    public String getErrorMessage() {
+	        
+	    	Utils utils = new Utils(driver);
+	    	
+	    	String xpath = "swal2-html-container";
+	        
+	    	return utils.findElementByXPath(xpath).getText();
+	    }
+	    
+	    public void refreshPage() {
+	        
+			   driver.navigate().refresh();
+		    }
       
   }

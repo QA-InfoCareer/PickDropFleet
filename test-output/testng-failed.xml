@@ -5,8 +5,10 @@
     <classes>
       <class name="com.pickdropfleet.admin.test.Admintest">
         <methods>
+          <include name="createUserByAdmin"/>
           <include name="adminLogin"/>
           <include name="browserLaunch"/>
+          <include name="adminLogout"/>
         </methods>
       </class> <!-- com.pickdropfleet.admin.test.Admintest -->
     </classes>

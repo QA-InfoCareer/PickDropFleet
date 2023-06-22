@@ -15,7 +15,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.python.icu.impl.Utility;
 
 import com.github.dockerjava.core.dockerfile.DockerfileStatement.Add;
 import com.pickdropfleet.utils.Utils;
@@ -208,7 +207,7 @@ public class Userpage {
 	     
 		 utils.clickVisibilityOfElementLocated(driver, kitchenName, 10);
 		 
-		 String valueToClick = "Beast Kitchen"; // The value to match and click
+		 String valueToClick = "Nestle Kitchens"; // The value to match and click
 		 
 		 utils.clickElementIfPresent(driver, valueToClick);
 		 
@@ -299,37 +298,6 @@ public class Userpage {
 	        
 	    	return utils.findElementByXPath(xpath).getText();
 	    }
-	 
-	 
-	   public void clearField() {
-		   
-		  driver.findElement(By.xpath("//input[@id = 'user_FirstName']")).clear();
-		   
-		  driver.findElement(By.xpath("//input[@id = 'user_LastName']")).clear();
-		  
-		  driver.findElement(By.xpath("//input[@id = 'user_Code']")).clear();
-		  
-		  driver.findElement(By.xpath("//input[@id = 'user_Mobile']")).clear();
-		  
-		  driver.findElement(By.xpath("//input[@id = 'user_Email']")).clear();
-		  
-		  driver.findElement(By.xpath("//input[@id = 'user_Aadhar']")).clear();
-		  
-		  driver.findElement(By.xpath("//input[@id = 'user_Pan']")).clear();
-		  
-		  driver.findElement(By.xpath("//input[@id = 'user_Education']")).clear();
-		  
-		  driver.findElement(By.xpath("//input[@id = 'user_Address']")).clear();
-		  
-		  driver.findElement(By.xpath("div:nth-child(18) div:nth-child(1) div:nth-child(2) input:nth-child(1)")).clear();
-		  
-		  driver.findElement(By.xpath("div:nth-child(17) div:nth-child(1) div:nth-child(2) input:nth-child(1)")).clear();
-	   
-	      driver.findElement(By.xpath("//input[@id = 'user_City']")).clear();
-	      
-	      driver.findElement(By.xpath("//input[@id = 'user_Postal']")).clear();
-	   
-	   }
 
 	   public void refreshPage() {
 	        

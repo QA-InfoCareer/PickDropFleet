@@ -1,9 +1,7 @@
 package com.pickdropfleet.admin.test;
 
 import org.testng.annotations.Test;
-import org.testng.internal.TestResult;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.Duration;
@@ -29,7 +27,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.python.antlr.PythonParser.return_stmt_return;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -66,13 +63,13 @@ public class Admintest {
 		
 		properties.load(input);
 		
-        String browser = properties.getProperty("browser1");
-        
+        String browser = properties.getProperty("browser");
+       
         System.out.println(browser);
         
         String url = properties.getProperty("url");
         
-        if(browser.equalsIgnoreCase("firefox")) {
+        if(browser.equalsIgnoreCase("chrome")) {
         	
         	ChromeOptions options = new ChromeOptions();
 
@@ -115,6 +112,8 @@ public class Admintest {
 		    	
 		    if(driver.getCurrentUrl() != null) {
 		    	
+		   Utils utils = new Utils(driver);
+		    	
 		   Loginpage loginPage = new Loginpage(driver);
 		   
 		   FileInputStream inputStream = new FileInputStream("C:\\Users\\DELL\\eclipse-workspace\\PickdropFleet\\src\\main\\resources\\Superadminlogin.xlsx");
@@ -144,11 +143,10 @@ public class Admintest {
 		    	driver.findElement(By.xpath("//button[text() = 'OK']")).click();
 		   
 		    	loginPage.clearField();
+		    	
+		    	utils.delay(700);
 		   
-		    } else if(loginPage.successLogin() != null) {
-	            
-		    	 System.out.println("Login Success");
-	        }
+		    } 
 		}
 		
 		    }
@@ -165,11 +163,11 @@ public class Admintest {
 
 		    
 	    @Test(priority = 2)
-	    public void createKitchenByAdmin() {
+	    public void createKitchenByAdmin() throws IOException, InterruptedException {
 	    	
-	        try {
-	        	
 	        	if(driver.getCurrentUrl() != null) {
+	        		
+	        		Utils utils = new Utils(driver);
 	        	
 	        		Kitchenpage kitchenPage = new Kitchenpage(driver);
 	    			
@@ -205,31 +203,41 @@ public class Admintest {
 	    	 
 	    	 String postalCode = sheet.getRow(i).getCell(8).toString();
 	    	 
-	    kitchenPage.addKitchenByAdmin(kitchenCode, kitchenName, noOfCell, address, landmark, city, state, country, postalCode, "3", "3");  
+	    kitchenPage.addKitchenByAdmin(kitchenCode, kitchenName, noOfCell, address, 
+	    		
+	    		landmark, city, state, country, postalCode, "3", "3");  
 	    
-	    }
-	    
-	    /////// Url verify ///////
-	    String url = driver.getCurrentUrl();
-	    
-	    if(url.equalsIgnoreCase("https://groupnpay.com/PickdropFleet/kitchen")) {
+       if(kitchenPage.isErrorMessageDisplayed() == true) {
 	    	
-	    	System.out.println(url);
+	    	String errorMessage = kitchenPage.getErrorMessage();
+	    	
+	    	System.out.println("The Message is : " + errorMessage);
+	    	
+			   driver.findElement(By.xpath("//button[text() = 'OK']")).click();
+			   
+			   kitchenPage.refreshPage();
+			   
+			    utils.delay(700);
+	    
+	    } 
+       
 	    }
 	    
-	      workbook.close();
-		 
-		  inputStream.close();
-	        			
-	        	}
-	        	
-	        } catch (Exception e) {
-	        	
-	        	System.out.println(e.getMessage());
-	        	
-	        } 
-	   
-	    }
+	/////// Url verify ///////
+		   String url = driver.getCurrentUrl();
+		   
+		   if(url.equalsIgnoreCase("https://groupnpay.com/PickdropFleet/super-admin")) {
+			   
+			   System.out.println(url);
+		   }
+		   
+		      workbook.close();
+			 
+			  inputStream.close();
+		 }
+	    
+	   }
+	  
 	    
 	    @Test(priority = 3)
 	    public void createUserByAdmin() {
@@ -274,7 +282,9 @@ public class Admintest {
 		 
 		 userPage.addUserByAdmin( 
 				 
-				 firstName, lastName, userCode, mobileNumber, "25091999", "imran100@gmail.com", "123456789012", "1234567890", education, address, country, state, city, postalCode);
+				 firstName, lastName, userCode, mobileNumber, "25091999", "imran100@gmail.com", "123456789012", "1234567890", 
+				 
+				 education, address, country, state, city, postalCode);
 		   
 		   if(userPage.isErrorMessageDisplayed() == true) {
 			   
@@ -288,10 +298,7 @@ public class Admintest {
 			   
 			    utils.delay(700);
 			   
-		   } else {
-			   
-			   System.out.println();
-		   }
+		   } 
 	   }
 	    			   		
 	   /////// Url verify ///////

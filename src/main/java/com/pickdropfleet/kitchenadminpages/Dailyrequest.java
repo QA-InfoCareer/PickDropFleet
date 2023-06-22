@@ -16,8 +16,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.pickdropfleet.utils.Utils;
 import com.pickdropflett.ss.Screenshot;
 
-import jnr.ffi.Struct.BYTE;
-
 public class Dailyrequest {
 	
 	WebDriver driver;
