@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Addvehicle {
 	
@@ -83,7 +83,7 @@ public class Addvehicle {
 			
 			String joinedAkshayapatra, String vehicleCode, String vehicleColor) throws InterruptedException, IOException {
 		
-		Screenshot screenshot = new Screenshot(driver);
+		Screenshots screenshot = new Screenshots(driver);
 		
 		Utils utils = new Utils(driver);
 
@@ -93,11 +93,11 @@ public class Addvehicle {
 		
 		utils.clickVisibilityOfElementLocated(driver, Vehiclemake, 10);
 		
-	 List<WebElement> vehicleMakeValue = driver.findElements(By.tagName("li"));
+	 List<WebElement> vehicleMake = driver.findElements(By.tagName("li"));
 	 
-	  if(vehicleMakeValue.size() > 0) {
+	  if(vehicleMake.size() > 0) {
 		  
-		  vehicleMakeValue.get(3).click();  // it selects vehicle make value
+		  vehicleMake.get(3).click();  // it selects vehicle make value "Ashok Leyland"
 	  }
 		
 		utils.clickVisibilityOfElementLocated(driver, Vehiclemodel, 10);

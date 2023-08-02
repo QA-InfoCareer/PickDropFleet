@@ -3,16 +3,21 @@
 <suite name="MyTestSuite">
   
   <test name="AdminTest">
+   
     <classes>
      
      <class name="com.pickdropfleet.admin.test.Admintest">
     
      <methods>
      
-     <include name="browserLaunch"></include>
+     <include name="browserLaunch"></include>  <!-- Super Admin Login -->
      <include name="adminLogin"></include>  
-     <include name="testImport"></include>
-  <!-- <include name="adminLogout"></include> -->  
+     <include name="createKitchenByAdmin"></include>
+     <include name="createUserByAdmin"></include>
+     <include name="testImport"></include> 
+     <include name="adminLogout"></include> 
+     
+    
      
      
      

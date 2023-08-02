@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Addschool {
 
@@ -106,7 +106,7 @@ public class Addschool {
 			   
 			   String akshayapatraJoinedOn) throws InterruptedException, IOException {
 		   
-		  Screenshot screenshot = new Screenshot(driver);
+		  Screenshots screenshot = new Screenshots(driver);
 		  
 		  /////// Generate random Email id ///////
 			 String randomEmail = generateRandomEmail();
@@ -145,7 +145,7 @@ public class Addschool {
 		  
 		     Utils utils = new Utils(driver);
 	
-		     utils.clickVisibilityOfElementLocated(driver, ClickSchool, 10);
+		     utils.clickVisibilityOfElementLocated(driver, ClickSchool, 20);
 		  
 		     utils.clickVisibilityOfElementLocated(driver, AddSchool, 10);
 		   

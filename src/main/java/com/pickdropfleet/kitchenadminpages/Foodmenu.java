@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Foodmenu {
 	
@@ -55,10 +55,10 @@ public class Foodmenu {
 	WebElement rows;
     
     // View btn
-    By View = By.xpath("(//button[text() = ' View '])[55]"); // it is your created food menu
+    By View = By.xpath("(//button[text() = ' View '])[58]"); // it is your created food menu
 	
     // Change btn
-    By Change = By.xpath("(//button[text()='Change'])[40]"); // it is your created school name
+    By Change = By.xpath("(//button[text()='Change'])[43]"); // it is your created school name
     
     // It clicks + to increase breakfast small
     By Smallplus = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium incQtyCls css-vubbuv'])[1]");
@@ -78,7 +78,7 @@ public class Foodmenu {
 	
 	  public String addFoodMenu(String menuDate, String menuBreakFast, String menuLunch) throws InterruptedException, IOException {
 		 
-		  Screenshot screenshot = new Screenshot(driver);
+		  Screenshots screenshot = new Screenshots(driver);
 
 		  Utils utils = new Utils(driver);
 		

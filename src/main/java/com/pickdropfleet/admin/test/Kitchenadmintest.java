@@ -124,20 +124,9 @@ public class Kitchenadmintest {
 				 
 				 loginPage.loginAction(userName, passKey);
 				 
-				 if(loginPage.isErrorMessageDisplayed() != false) {
-					 
-					 String errorMessage = loginPage.getErrorMessage();
-					 
-					 System.out.println("Message is : "+errorMessage);
-					 
-					 driver.findElement(By.xpath("//button[text() = 'OK']")).click();
-					 
-					 loginPage.clearField();
+				 loginPage.submitBtn();
 				 
-				 } else if(loginPage.successLogin() != null) {
-					 
-					 System.out.println("Login success");
-				 }
+				 loginPage.loginValidation();
 				  
 			  }
 				

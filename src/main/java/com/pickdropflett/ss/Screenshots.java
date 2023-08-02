@@ -11,19 +11,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
 
-public class Screenshot {
+public class Screenshots {
 	
 	WebDriver driver;
 	
-	public Screenshot(WebDriver driver) {
+	public Screenshots(WebDriver driver) {
 		
 		this.driver = driver;
 		
 		PageFactory.initElements(driver, this);
 	}
 
-//////////Taking Screenshots before submitting data //////////
+   //////////Taking Screenshots before submitting data //////////
     
      public void takeScreenshot() throws IOException {
     	 
@@ -41,7 +42,7 @@ public class Screenshot {
    	  
    	  js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
    	  
-   	  ru.yandex.qatools.ashot.Screenshot screenshot = new AShot().takeScreenshot(driver);
+   	  Screenshot screenshot = new AShot().takeScreenshot(driver);
    	  
    	boolean saveImage = ImageIO.write(screenshot.getImage(), "PNG", new File("C:\\Users\\DELL\\eclipse-workspace\\PickdropFleet\\test-output " +screenshotWithDate.trim()+".png"));
     	 

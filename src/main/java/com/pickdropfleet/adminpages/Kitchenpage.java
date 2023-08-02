@@ -30,7 +30,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 import ru.yandex.qatools.ashot.AShot;
 
@@ -126,7 +126,7 @@ public class Kitchenpage {
     		  
     		  String postalCode, String upArrowMedium, String upArrowSmall) throws InterruptedException, IOException {
 	    
-    	  Screenshot screenshot = new Screenshot(driver);
+    	  Screenshots screenshot = new Screenshots(driver);
     	  
     	  Utils utils = new Utils(driver);
     	 

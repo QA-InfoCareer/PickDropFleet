@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -229,15 +228,18 @@ public class Utils {
 	    }
 
 	 public void clickElementIfPresent(WebDriver driver, String valueToMatch) {
-	        List<WebElement> elements = driver.findElements(By.tagName("li"));
+	        
+		 List<WebElement> elements = driver.findElements(By.tagName("li"));
 
 	        for (WebElement element : elements) {
-	            String elementText = element.getText();
-	            System.out.println(elementText);
+	            
+	        	String elementText = element.getText();
 
 	            if (elementText.equalsIgnoreCase(valueToMatch)) {
-	                element.click();
-	                break;
+
+	            	element.click();
+	                
+	            	break;
 	            }
 	        }
 	    }

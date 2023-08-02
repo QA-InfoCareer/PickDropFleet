@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Dailyrequest {
 	
@@ -26,7 +26,7 @@ public class Dailyrequest {
 	WebElement DashboardIcon;
 	
 	// it clicks daily request
-	By Dailyrequest = By.xpath("(//h6)[7]");  
+	By Dailyrequest = By.xpath("//h6[text() = 'Daily Requests']");  //  (//h6)[7]
 	
 	// it clicks All in dropdown
 	@FindBy(className =  "sc-cyRfQX bRjJvB")
@@ -39,7 +39,7 @@ public class Dailyrequest {
 	By Search = By.xpath("//button[text() = 'Search']");
 	
 	// it clicks view btn
-	By View = By.xpath("(//button[@type='button'][normalize-space()='View'])[12]");
+	By View = By.xpath("(//button[@type='button'][normalize-space()='View'])[15]"); // it is your created route
 	
 	// enter expected start date
 	By ExpectedStartTime = By.id("expected_Start");
@@ -51,13 +51,13 @@ public class Dailyrequest {
 	By Vehiclename = By.id("vehicle_Name");
 	
 	// it selects Vehicle name value
-	By VehicleNamevalue = By.xpath("//li[text() = 'Veh - 81']");
+	By VehicleNamevalue = By.xpath("//li[text() = 'Veh - 84']");
 	
 	// it clicks delivered by
 	By Deliveredby = By.id("delivered_By");
 	
 	// it selects Delivered By value
-	By DeliveredByvalue = By.xpath("//li[text() = 'Aarya']");
+	By DeliveredByvalue = By.xpath("//li[text() = 'Kartik']");
 	
 	// it clicks Save btn
 	By Savebtn = By.xpath("//button[text() = 'Save']");
@@ -73,7 +73,7 @@ public class Dailyrequest {
 	
 	 public String addDailyRequest(String todaysDate, String startTime, String endTime) throws InterruptedException, IOException {
 	
-		 Screenshot screenshot = new Screenshot(driver);
+		 Screenshots screenshot = new Screenshots(driver);
 		 
 		 LocalDate currentDate = LocalDate.now();
 
@@ -94,7 +94,7 @@ public class Dailyrequest {
 		
 		utils.clickVisibilityOfElementLocated(driver, Search, 10);
 
-		WebElement rows = driver.findElement(By.className("sc-cyRfQX bRjJvB"));
+		WebElement rows = driver.findElement(By.xpath("//select[@aria-label='Rows per page:']"));
 		
 		System.out.println("Is element visible on webpage : "+rows);
 		

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Addfuelsupervisor {
 
@@ -72,10 +72,10 @@ public class Addfuelsupervisor {
 
 	By Saveaddress = By.xpath("(//button[text() = 'Save'])[2]"); // it saves address
 
-	@FindBy(xpath = "//body[1]/div[1]/div[1]/main[1]/div[3]/div[1]/form[1]/div[2]/div[17]/div[1]/div[2]/input[1]")
+	@FindBy(id = "user_Country")
 	WebElement Country; // enter country
 
-	@FindBy(xpath = "//body[1]/div[1]/div[1]/main[1]/div[3]/div[1]/form[1]/div[2]/div[16]/div[1]/div[2]/input[1]")
+	@FindBy(id = "user_State")
 	WebElement State;
 
 	@FindBy(id = "user_City")
@@ -106,7 +106,7 @@ public class Addfuelsupervisor {
 
 			String state, String country, String postalCode) throws IOException {
 
-		Screenshot screenshot = new Screenshot(driver);
+		Screenshots screenshot = new Screenshots(driver);
 
 		String randomEmail5 = generateRandomEmail5();
 

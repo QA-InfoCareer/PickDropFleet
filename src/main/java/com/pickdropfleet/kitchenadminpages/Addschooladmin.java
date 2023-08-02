@@ -12,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Addschooladmin {
 
@@ -71,10 +71,10 @@ public class Addschooladmin {
 
 	By Saveaddress = By.xpath("(//button[text() = 'Save'])[2]"); // it saves address
 
-	@FindBy(xpath = "//body[1]/div[1]/div[1]/main[1]/div[3]/div[1]/form[1]/div[2]/div[17]/div[1]/div[2]/input[1]")
+	@FindBy(id = "user_Country")
 	WebElement Country; // enter country
 
-	@FindBy(xpath = "//body[1]/div[1]/div[1]/main[1]/div[3]/div[1]/form[1]/div[2]/div[16]/div[1]/div[2]/input[1]")
+	@FindBy(id = "user_State")
 	WebElement State;
 
 	@FindBy(id = "user_City")
@@ -105,7 +105,7 @@ public class Addschooladmin {
 
 			String state, String country, String postalCode) throws InterruptedException, IOException {
 
-		Screenshot screenshot = new Screenshot(driver);
+		Screenshots screenshot = new Screenshots(driver);
 
 		String randomEmail1 = generateRandomEmail1();
 
@@ -172,11 +172,11 @@ public class Addschooladmin {
 
 		utils.clickVisibilityOfElementLocated(driver, Role, 10);
 
-		List<WebElement> School = driver.findElements(By.tagName("li"));
+		List<WebElement> school = driver.findElements(By.tagName("li"));
 
-		if (School.size() > 0) {
+		if (school.size() > 0) {
 
-			School.get(3).click();
+			school.get(3).click();
 		}
 
 		utils.clickVisibilityOfElementLocated(driver, Schoolname, 10);
@@ -195,7 +195,7 @@ public class Addschooladmin {
 
 				value.add(texts);
 
-				if(element.getText().equalsIgnoreCase("Hogward School")) { // school value
+				if(element.getText().equalsIgnoreCase("Wednesday Adam School")) { // school value
 
 					element.click();
 

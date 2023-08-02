@@ -133,21 +133,11 @@ public class Admintest {
 			  System.out.println("Super Admin password : "+ passKey);
 			  
 		  loginPage.loginAction(userName, passKey);
+		  
+		  loginPage.submitBtn();
 			
-		    if (loginPage.isErrorMessageDisplayed() != false) {
-		    	
-		    	String errorMessage = loginPage.getErrorMessage();
-		    	
-		    	System.out.println("The Error Message is : " +errorMessage);
-		    	
-		    	driver.findElement(By.xpath("//button[text() = 'OK']")).click();
-		   
-		    	loginPage.clearField();
-		    	
-		    	utils.delay(700);
-		   
-		    } 
-		}
+		  loginPage.loginValidation();
+	  }
 		
 		    }
     }

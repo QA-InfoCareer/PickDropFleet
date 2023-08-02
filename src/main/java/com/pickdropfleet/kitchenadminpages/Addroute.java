@@ -19,7 +19,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Addroute {
 	
@@ -51,7 +51,7 @@ public class Addroute {
 	WebElement rows;
 	
 	// it clicks view btn
-	By View = By.xpath("(//button[text() = ' View '])[29]"); // it is your created route
+	By View = By.xpath("(//button[text() = ' View '])[32]"); // it is your created route
 	
 	// it clicks map school btn
 	By Mapschool = By.xpath("//a[normalize-space()='+ Map Schools']");
@@ -79,7 +79,7 @@ public class Addroute {
 		
       try {
     	  
-  		Screenshot screenshot = new Screenshot(driver);
+  		Screenshots screenshot = new Screenshots(driver);
 	
   		Utils utils = new  Utils(driver);
   		

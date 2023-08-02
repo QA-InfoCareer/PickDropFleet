@@ -19,7 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.github.dockerjava.core.dockerfile.DockerfileStatement.Add;
 import com.pickdropfleet.utils.Utils;
 import com.pickdropflett.ss.Randomemail;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Userpage {
 	
@@ -30,7 +30,7 @@ public class Userpage {
    WebElement dashboardIcon;
    
    // It selects user in dashboard
-   By clickUser = By.xpath("//h6[text() = 'User']");
+   By clickUser = By.xpath("(//h6[text() = 'User'])[1]");
    
    // It selects user
    By createUser = By.xpath("//a[text()='+ Create User']");
@@ -197,7 +197,7 @@ public class Userpage {
 	         // Print the generated mobile number
 	         System.out.println("Random mobile number: " + mobileNum);
 	     
-	     Screenshot screenshot = new Screenshot(driver);
+	     Screenshots screenshot = new Screenshots(driver);
 	   
 	     utils.clickVisibilityOfElementLocated(driver, clickUser, 10);
 		 
@@ -207,7 +207,7 @@ public class Userpage {
 	     
 		 utils.clickVisibilityOfElementLocated(driver, kitchenName, 10);
 		 
-		 String valueToClick = "Parle Kitchens"; // The value to match and click
+		 String valueToClick = "Hamley Kitchens"; // The value to match and click
 		 
 		 utils.clickElementIfPresent(driver, valueToClick);
 		 

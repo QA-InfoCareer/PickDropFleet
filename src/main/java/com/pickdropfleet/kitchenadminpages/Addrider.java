@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Addrider {
 
@@ -77,10 +77,10 @@ public class Addrider {
 
 	By Saveaddress = By.xpath("(//button[text() = 'Save'])[2]"); // it saves address
 
-	@FindBy(xpath = "//body[1]/div[1]/div[1]/main[1]/div[3]/div[1]/form[1]/div[2]/div[17]/div[1]/div[2]/input[1]")
+	@FindBy(id = "user_Country")
 	WebElement Country; // enter country
 
-	@FindBy(xpath = "//body[1]/div[1]/div[1]/main[1]/div[3]/div[1]/form[1]/div[2]/div[16]/div[1]/div[2]/input[1]")
+	@FindBy(id = "user_State")
 	WebElement State;
 
 	@FindBy(id = "user_City")
@@ -158,7 +158,7 @@ public class Addrider {
 
 			String city, String postalCode) throws InterruptedException, IOException {
 
-		Screenshot screenshot = new Screenshot(driver);
+		Screenshots screenshot = new Screenshots(driver);
 
 		/////// Generate random Email id ///////
 		String randomEmail = generateRandomEmail();

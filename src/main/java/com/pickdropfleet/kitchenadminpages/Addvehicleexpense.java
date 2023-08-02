@@ -1,7 +1,8 @@
 package com.pickdropfleet.kitchenadminpages;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.pickdropfleet.utils.Utils;
-import com.pickdropflett.ss.Screenshot;
+import com.pickdropflett.ss.Screenshots;
 
 public class Addvehicleexpense {
 
@@ -29,7 +30,7 @@ public class Addvehicleexpense {
 	By Vehiclecode = By.id("vehicle_Code");
 	
 	// it selects Vehiclecode value
-	By VehicleCodevalue = By.xpath("//li[text() = 'Veh - 81']");
+	By VehicleCodevalue = By.xpath("//li[text() = 'Veh - 84']");
 	
 	// it selects Service type
 	By Servicetype = By.id("service_Type");
@@ -71,7 +72,7 @@ public class Addvehicleexpense {
 			
 			String totalServiceCost, String expenseDetails, String dateOfExpense) throws InterruptedException, IOException {
 
-	   Screenshot screenshot = new Screenshot(driver);
+	   Screenshots screenshot = new Screenshots(driver);
 	   
 	   Utils utils = new Utils(driver);
 	   
@@ -85,7 +86,7 @@ public class Addvehicleexpense {
 		
 		utils.clickVisibilityOfElementLocated(driver, Servicetype, 10);
 	
-		utils.clickVisibilityOfElementLocated(driver, ServiceTypevalue, 10);
+	    utils.clickVisibilityOfElementLocated(driver, ServiceTypevalue, 10);
 		
 		utils.sendKeysWithExplicitWait(driver, NoOfUnits, noOfUnits, 10);
 		

@@ -50,15 +50,18 @@ public class Loginpage {
     }
 	
 	public void loginAction(String userName, String pwd) throws InterruptedException  {
-			
-		 Utils utils = new Utils(driver);
-			
+		
 			username.sendKeys(userName);
 			
-			password.sendKeys(pwd);
-			
-			utils.clickElementWithWait(driver, submit);
+			password.sendKeys(pwd);	
 		
+   }
+	
+   public void submitBtn() {
+	   
+	   Utils utils = new Utils(driver);
+	   
+	   utils.clickElementWithWait(driver, submit);
    }
 	
 	public boolean isErrorMessageDisplayed() {
@@ -86,17 +89,54 @@ public class Loginpage {
     	
     	password.clear();
     }
+
     
-    public String successLogin() {
+    public boolean loginValidation() {
     	
-    	String url = driver.getCurrentUrl();
+   	try {
+   		
+   		boolean isLoggedIn = driver.findElements(By.xpath("//h5[text()='Dashboard']")).size() > 0;
+   	    
+        if(isLoggedIn) {
+       	 
+       	 System.out.println("User is in home page");
+        
+        } else if(!isLoggedIn) {
+        
+       	 Utils utils = new Utils(driver);
+        	
+        String xpath = "swal2-html-container";
+        
+        String text = utils.findElementByXPath(xpath).getText();
+        
+        System.out.println("The Error Message is : " +text);
+        
+        driver.findElement(By.xpath("//button[text() = 'OK']")).click();
+        
+        WebElement username = driver.findElement(By.id("email-login"));
+        
+        username.clear();
+        
+        WebElement passKey = driver.findElement(By.xpath("//input[@id= '-password-login']"));
+        
+        passKey.clear();
+        	
+        utils.delay(700);
+        
+      }
+   	
+   		
+   	} catch (Exception e) {
+   		
+   		e.getStackTrace();
+   		
+   		System.out.println(e);
+   	}    	
     	
-    	 if(url.equalsIgnoreCase("http://20.235.104.54:8080/PickdropFleet/kitchen")) {
-    		 
-    		 System.out.println(url);
-    	 }
-		
-    	 return url;
-    }
+     return true;
+    	
+  }
+    
+    
 	
 }
