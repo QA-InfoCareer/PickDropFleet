@@ -306,6 +306,14 @@ public class Utils {
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
 	    
 	 }
+	 
+	 public static WebElement waitForElementDisplayed(WebDriver driver, By locator, int timeoutInSeconds) {
+	       
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	     
+		 return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	    
+	 }
 
 	
 	

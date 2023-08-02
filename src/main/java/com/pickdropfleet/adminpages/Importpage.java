@@ -1,6 +1,7 @@
 package com.pickdropfleet.adminpages;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -37,7 +38,7 @@ public class Importpage {
 	WebElement Downlodadsample;
 	
 	// it clicks and import that sample excel file
-	@FindBy(xpath = "//label[@class = 'label2']")
+	@FindBy(xpath = "//section//input[contains(@accept,'.xlsx, .xls,.csv')]")
 	WebElement Importsample;
 	
 	// it clicks Save btn
@@ -65,18 +66,12 @@ public class Importpage {
 
 			//utils.clickElementWithWait(driver, Downlodadsample);
 			
-			if(Importsample.isDisplayed() && Importsample.isEnabled() != false) {
-				
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-				
-				
-		WebElement fileInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[@class = 'label2']")));
-				
-		fileInput.sendKeys("C:\\Users\\DELL\\Downloads\\kitchen.csv");
-				
-				System.out.println("Your file is uploaded");
-			}
-			
+		List<WebElement> tagName = driver.findElements(By.tagName("input"));
+		
+		   if(tagName.size() > 0) {
+			   
+			   tagName.get(0).sendKeys("C:\\Users\\DELL\\Downloads\\kitchen.xlsx");
+		   }
 			
 			utils.clickElementWithWait(driver, Savebtn);
 			

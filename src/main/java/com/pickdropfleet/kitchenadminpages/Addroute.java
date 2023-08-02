@@ -57,10 +57,10 @@ public class Addroute {
 	By Mapschool = By.xpath("//a[normalize-space()='+ Map Schools']");
 	
 	// it clicks on check box
-	By checkSchool = By.xpath("(//div[@class='sc-hLseeU sc-gLDzan efVpVk gNRcrj rdt_TableCell'])[17]"); // it is your created school
+	By checkSchool = By.xpath("(//div[@class='sc-hLseeU sc-gLDzan efVpVk gNRcrj rdt_TableCell'])[19]"); // it is your created school
 	
 	//it selects sequential order
-	@FindBy(xpath = "(//select[@id='sequence'])[17]")
+	@FindBy(xpath = "(//select[@id='sequence'])[19]")
 	WebElement Sequence; // it is your created school same sequence
 	
 	// it clicks add btn

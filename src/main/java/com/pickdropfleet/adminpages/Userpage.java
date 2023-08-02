@@ -207,7 +207,7 @@ public class Userpage {
 	     
 		 utils.clickVisibilityOfElementLocated(driver, kitchenName, 10);
 		 
-		 String valueToClick = "Nestle Kitchens"; // The value to match and click
+		 String valueToClick = "Parle Kitchens"; // The value to match and click
 		 
 		 utils.clickElementIfPresent(driver, valueToClick);
 		 

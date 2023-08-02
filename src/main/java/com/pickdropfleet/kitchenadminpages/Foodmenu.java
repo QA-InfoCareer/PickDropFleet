@@ -58,7 +58,7 @@ public class Foodmenu {
     By View = By.xpath("(//button[text() = ' View '])[55]"); // it is your created food menu
 	
     // Change btn
-    By Change = By.xpath("(//button[text()='Change'])[38]"); // it is your created school name
+    By Change = By.xpath("(//button[text()='Change'])[40]"); // it is your created school name
     
     // It clicks + to increase breakfast small
     By Smallplus = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium incQtyCls css-vubbuv'])[1]");

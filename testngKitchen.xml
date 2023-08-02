@@ -13,9 +13,9 @@
      
      <include name="browserLaunch"></include>
      <include name="kitchenAdminLogin"></include>
-     <include name="addSchoolAdminAtUser"></include> 
+     <include name="testDailyRequest"></include>
+     <include name="testAddVehicleExpense"></include>
      <include name="kitchenAdminLogout"></include> 
-   
      
      </methods>
      

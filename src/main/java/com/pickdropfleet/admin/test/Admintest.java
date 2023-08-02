@@ -332,8 +332,6 @@ public class Admintest {
 		    	
 		    	importPage.importPage();
 		    	
-		    	System.out.println("Successfully imported Kitchen");
-	    		
 	    	} catch (Exception e) {
 	    		
 	    		e.getMessage();

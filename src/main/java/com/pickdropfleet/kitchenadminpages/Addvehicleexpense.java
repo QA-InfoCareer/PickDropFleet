@@ -29,7 +29,7 @@ public class Addvehicleexpense {
 	By Vehiclecode = By.id("vehicle_Code");
 	
 	// it selects Vehiclecode value
-	By VehicleCodevalue = By.xpath("//li[text() = 'Veh - 79']");
+	By VehicleCodevalue = By.xpath("//li[text() = 'Veh - 81']");
 	
 	// it selects Service type
 	By Servicetype = By.id("service_Type");

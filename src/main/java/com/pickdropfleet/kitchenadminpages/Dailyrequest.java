@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pickdropfleet.utils.Utils;
@@ -27,6 +28,10 @@ public class Dailyrequest {
 	// it clicks daily request
 	By Dailyrequest = By.xpath("(//h6)[7]");  
 	
+	// it clicks All in dropdown
+	@FindBy(className =  "sc-cyRfQX bRjJvB")
+	WebElement rows;
+	
 	// enter delivery date
 	By Deliverydate = By.xpath("//input[@id = 'delivery_Date']");
 	
@@ -34,7 +39,7 @@ public class Dailyrequest {
 	By Search = By.xpath("//button[text() = 'Search']");
 	
 	// it clicks view btn
-	By View = By.xpath("(//button[@type='button'][normalize-space()='View'])[13]");
+	By View = By.xpath("(//button[@type='button'][normalize-space()='View'])[12]");
 	
 	// enter expected start date
 	By ExpectedStartTime = By.id("expected_Start");
@@ -46,13 +51,13 @@ public class Dailyrequest {
 	By Vehiclename = By.id("vehicle_Name");
 	
 	// it selects Vehicle name value
-	By VehicleNamevalue = By.xpath("//li[text() = 'Veh - 80]");
+	By VehicleNamevalue = By.xpath("//li[text() = 'Veh - 81']");
 	
 	// it clicks delivered by
 	By Deliveredby = By.id("delivered_By");
 	
 	// it selects Delivered By value
-	By DeliveredByvalue = By.xpath("//li[text() = 'Rajinikanth']");
+	By DeliveredByvalue = By.xpath("//li[text() = 'Aarya']");
 	
 	// it clicks Save btn
 	By Savebtn = By.xpath("//button[text() = 'Save']");
@@ -88,7 +93,15 @@ public class Dailyrequest {
 	    utils.sendKeysWithExplicitWait(driver, Deliverydate, todaysDate1, 10);
 		
 		utils.clickVisibilityOfElementLocated(driver, Search, 10);
+
+		WebElement rows = driver.findElement(By.className("sc-cyRfQX bRjJvB"));
 		
+		System.out.println("Is element visible on webpage : "+rows);
+		
+		Select select = new Select(rows);
+		
+		select.selectByVisibleText("ALL");
+			
 		utils.clickVisibilityOfElementLocated(driver, View, 10);
 		
 		utils.sendKeysWithExplicitWait(driver, ExpectedStartTime, startTime, 20);
@@ -103,19 +116,11 @@ public class Dailyrequest {
 		
 		utils.clickVisibilityOfElementLocated(driver, DeliveredByvalue, 10);
 		
-		utils.setImplicitWait(10);
-		
 		screenshot.takeScreenshot();
-		
-		utils.setImplicitWait(10);
-		
+	
 		utils.clickVisibilityOfElementLocated(driver, Savebtn, 10);
 		
-		utils.setImplicitWait(1000);
-		
 		screenshot.takeScreenshot();
-		
-		utils.setImplicitWait(10);
 		
 		utils.clickVisibilityOfElementLocated(driver, Okbtn, 10);
 		

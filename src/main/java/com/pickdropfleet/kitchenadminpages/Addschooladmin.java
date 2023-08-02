@@ -195,7 +195,7 @@ public class Addschooladmin {
 
 				value.add(texts);
 
-				if(element.getText().equalsIgnoreCase("Queen Meera International School")) { // school value
+				if(element.getText().equalsIgnoreCase("Hogward School")) { // school value
 
 					element.click();
 
@@ -258,6 +258,7 @@ public class Addschooladmin {
 			(State).sendKeys(state);
 			utils.setImplicitWait(1000);
 			(Country).clear();
+			utils.setImplicitWait(1000);
 			(Country).sendKeys(country);
 			(Postalcode).clear();
 			(Postalcode).sendKeys(postalCode);
